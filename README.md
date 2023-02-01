@@ -1,16 +1,21 @@
-# GUÍA INTRODUCTORIA AL DESARROLLO WEB
+# **LA GUÍA DEL DESARROLLADOR WEB GALÁCTICO 🚀**
 
-## Índice
+Bienvenidos a la guía definitiva de la DEII para entender de una vez por todas el mapa general del desarrollo web. Pero no cualquier desarrollo web, sino el desarrollo web **GALÁCTICO.**
 
-    - Infraestructura: ¿Cómo funcionan las páginas web?
-        - El modelo [cliente/servidor](#el-model-clienteservidor)
-    - Diseño: UI/UX.
-    - Frontend: ¿Cómo se construyen las interfaces de usuario?
-    - Backend: Dónde ocurre la mágia.
-    - Sistemas: linux uwu.
+Pero tranquilo astronauta, sabemos que no quieres marearte en tu primer viaje a si que no vamos a ir, como dice fonsi, des pa cito.
+
+el único objetivo de esta guía es que cuando la termines tengas un mapa en la cabeza de como funciona el desarrollo web y puedas comenzar a trabajar.
+
+# Índice
+
+#### 1. Infraestructura: Los pilares de todo
+#### 2. Diseño: Cómo crear experiencias únicas
+#### 3. Frontend: Convertir una experiencia única en una aplicación real
+#### 4. Backend: Dónde ocurre la magía.
+#### 5. Sistemas: linux uwu
 
 
-## Infraestructura
+# Infraestructura
 
 ### El modelo cliente/servidor
 
@@ -46,11 +51,11 @@ SSR nuevo modelo servidor/servidor/cliente -> el cliente pide la intefaz de una,
 PROBLEMA SOLUCIONADO: FALTA DE INTERACCIÓN, FALTA DE SEO
 ejemplos: netflix quiere que puedas bajar el volumen sin que recargues la página, y también quiere que cuando busques una serie concreta aparezca en el navegador. 
 
-## DESIGN
+# Diseño
 
 figma
 
-## FRONT
+# Frontend
 
 lenguajes:
 
@@ -62,7 +67,7 @@ javascript: introducción, paradigma funcional es6, (!yuju existen clases pero n
 
 nosotros usaremos next implementa react como librería.
 
-## BACKEND
+# Backend
 
 python: 
 https:
@@ -70,7 +75,7 @@ lenguaje: de verdad herencia (!puto self) y programacion funcional (lambdas) en 
 postgres
 ORM
 
-## SISTEMAS
+# Sistemas
 
 nginx (Servidor front)
 django (Servidor back)
