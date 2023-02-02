@@ -8,14 +8,14 @@ el único objetivo de esta guía es que cuando la termines tengas un mapa en la 
 
 # Índice
 
-#### 1. Infraestructura: Los pilares de todo
-#### 2. Diseño: Cómo crear experiencias únicas
-#### 3. Frontend: Convertir una experiencia única en una aplicación real
-#### 4. Backend: Dónde ocurre la magía.
-#### 5. Sistemas: linux uwu
+1. [Infraestructura: El mapa](#infraestructura-el-mapa)
+2. [Diseño: Cómo crear experiencias únicas](#diseño-cómo-crear-experiencias-únicas)
+3. [Frontend: Convertir una experiencia única en una aplicación real](#frontend-de-un-diseño-único-a-código-escalable)
+4. [Backend: Dónde ocurre la magia](#backend-dónde-ocurre-la-magia)
+5. [Sistemas: Linux uwu](#sistemas-linux-uwu)
 
 
-# Infraestructura
+# Infraestructura: Los pilares 
 
 ### El modelo cliente/servidor
 
@@ -51,11 +51,11 @@ SSR nuevo modelo servidor/servidor/cliente -> el cliente pide la intefaz de una,
 PROBLEMA SOLUCIONADO: FALTA DE INTERACCIÓN, FALTA DE SEO
 ejemplos: netflix quiere que puedas bajar el volumen sin que recargues la página, y también quiere que cuando busques una serie concreta aparezca en el navegador. 
 
-# Diseño
+# Diseño: Cómo crear experiencias únicas
 
 figma
 
-# Frontend
+# Frontend: De un diseño único a código escalable
 
 lenguajes:
 
@@ -67,7 +67,7 @@ javascript: introducción, paradigma funcional es6, (!yuju existen clases pero n
 
 nosotros usaremos next implementa react como librería.
 
-# Backend
+# Backend: Dónde ocurre la magia
 
 python: 
 https:
@@ -75,7 +75,7 @@ lenguaje: de verdad herencia (!puto self) y programacion funcional (lambdas) en 
 postgres
 ORM
 
-# Sistemas
+# Sistemas: Linux uwu
 
 nginx (Servidor front)
 django (Servidor back)
