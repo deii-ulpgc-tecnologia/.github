@@ -1,0 +1,157 @@
+# **La guía del desarrollador web galáctico 🚀**
+
+Bienvenidos a la guía definitiva de la DEII para entender de una vez por todas el mapa general del desarrollo web. Pero no cualquier desarrollo web, sino el desarrollo web **GALÁCTICO.**
+
+Pero tranquilo astronauta, sabemos que no quieres marearte en tu primer viaje a si que vamos a ir, como dice fonsi, des pa ci to.
+
+el único objetivo de esta guía es que cuando la termines tengas un mapa en la cabeza de como funciona el desarrollo web y puedas comenzar a trabajar.
+
+Comencemos pues!
+
+3, 2, 1... Despegue!!!!!!!
+
+
+# Índice
+
+#### 1. Infraestructura: Los pilares de todo
+#### 2. Diseño: Cómo crear experiencias únicas
+#### 3. Frontend: Convertir una experiencia única en una aplicación real
+#### 4. Backend: Dónde ocurre la magía.
+#### 5. Sistemas: linux uwu
+
+
+# Infraestructura
+
+### El modelo cliente/servidor
+
+cliente/servidor
+
+concepto:
+
+SSR
+
+CLIENTE <-> SERVER
+
+cliente/servidor -> http tradicional petición devuelves html
+
+problemas: aplicaciones cada vez mas interacción, tarda mucho en devolver html ejemplo 
+Ejemplos: google, pagina universidad (requiren poca interaccion mantienen el esquema tradicional)
+
+CSR
+
+CLIENTE - -> SERVER 1 -> http -> el server que antes enviaba html al cliente ahora en un formato que otro programa pueda leer JSON, el front se descarga entero de una.
+    |
+    --> SERVER 2
+
+Problemas: el seo es una mierda. La araña de google solo ve un html en blanco porque no interpreta js
+Ejemplos: dashboards de métricas, videojuegos, aplicaciones web (whatsapp imaginate que cada vez que envias un mensaje por ella se recargara la página)
+
+HIBRID: CSR + SSR
+
+CLIENTE <-> server 1 <-> server 2 -> 
+    |--------------------|
+
+SSR nuevo modelo servidor/servidor/cliente -> el cliente pide la intefaz de una, y la interfaz se encarga de comunicarse con el servidor para devolverle la información como se la devuelve? JSON, javascript object notation, en que lenguaje esta la intefaz programada? javascript
+
+PROBLEMA SOLUCIONADO: FALTA DE INTERACCIÓN, FALTA DE SEO
+ejemplos: netflix quiere que puedas bajar el volumen sin que recargues la página, y también quiere que cuando busques una serie concreta aparezca en el navegador. 
+
+# Diseño
+
+## Aterrizaje en el planeta diseño:
+
+Bueno viajero, que tal ha ido tu primer expedición? Tienes un poco cara de mareado. Pero bueno, tranquilo que has aterricado en el planeta mas calmado de todos. El planeta **Diseño**. Para sobrevivir en este planeta solo necesitas tener a mano una cosa: Figma. 
+
+Figma lo puedes descargar a través de este enlace, tanto en mac, windows y linux. De todos modos, como aún eres novato aquí tienes un tutorial que te explica paso por paso como instalarlo.
+
+Una vez que lo tengas necesitamos que nos avises para que te metamos en la organización de Figma (A partir de ahora lo llamaremos Fg para no repetirlo mucho).
+
+Fg es una de las utilidades más usadas en el mundo para el diseño de interfaces de usuario. Tanto es así que Google, Microsoft y la mayoría de grandes tecnológicas han decidido sustituir Adobe XD (su principal competidor) por este mismo. Cuenta con una amplia gama de herramientas como la organización interna de los proyectos, flujos de trabajo colaborativos, librerías comunitarias y un montón más de cosas fancy aunque, por ahora, lo único que nos interesa es que sobrevivas así que seguimos chill.
+
+## Día 1:
+
+Para sobrevivir a tu primer día necesito que entrenes un poco, que te veo flojo. El entrenamiento consiste en dos partes 1. Verte hasta la cuarta hora del siguiente tutorial. Y la segunda leer la sección introducción al diseño de este día.
+
+
+### Introducción al diseño:
+
+Ahora que ya sabes trabajar con la herramienta figma te estarás preguntando, vale, ya se poner cuadraditos y circulitos en una pantalla pero, ¿Qué es el diseño realmente?. El diseño es una forma de comunicación, y cómo toda comunicación, tiene un mensaje específico que el autor quiere transmitir con el afan de conseguir un objetivo (muchas veces impuesto por nuestro cliente). El labor del diseñador, es decir, tú; es ayudar a conseguir que este objetivo e cumpla a través de los elementos representables por pantalla. Por ejemplo imaginemos que una librería nos pide hacerle un ecommerce (tienda online) para vender sus libros de forma mas escalable y nos pide que le hagamos el diseño de la página. Como todo buen diseñador nosotros nos ponemos manos a la obra, abrimos Figma y empezamos a crear la página. Añadimos unas animaciones super fancy, una tipografía moderna cuco, una apariencia minimalista al más puro estilo Apple por que somos fans de steve jobs y le entregamos la página a nuestro cliente. Pero resulta que tras un mes de uso la tasa de conversión (personas que ven la página / de personas que compran) es tan solo de un 3% y la duración por visita es inferior a 1 segundo. Así es, por mucha animación fancy que hayamos metido hemos fracasado como diseñadores, nos hemos olvidado de lo principal, cumplir el objetivo de nuestro cliente.
+
+Como podeis ver por las palabras anteriores esto no es una disertación filosófica sobre el diseño como forma de arte, ni un libro de 1000 páginas hablando sobre tendencias de diseño modernas. Esto es un libro práctico para diseñadores UI que quieren ayudar a su empresa a conseguir sus objetivos a través de su trabajo. Para ello se requieren dos cosas: entender como funciona el diseño para poder transmitir el mensaje que queramos y medir su performance en base a los objetivos de nuestro cliente.
+
+Con estas dos cosas podremos iterar sobre nuestro diseño una y otra vez modificando los elementos que no funcionan y manteniendo los que si para tener una página optimizada a los requisitos dados.
+
+## Día dos:
+
+Comencemos hablando del UI: el ui se encarga del aspecto visual de nuestro diseño, es decir los estilos. Los principios que necesitamos conocer son los siguientes:
+
+1. Consistencia Visual: este principio es uno de los mas importantes ya que será el que nos permita construir una marca a través de nuestro diseño. La consistencia nos impone seguir una paleta de colores, unas fuentes predefinidas, un estilo de los botones, tags etc... Esto se hace para que todas las interfaces mantengan una apariencia similar y nunca se rompa la imagen de la marca, ni pierda la coherencia. Para ello usaremos una magia ancestral llamada Design System (O Sistema de Diseño en lenguaje terricola) que nos inicará todos estos aspectos de nuestra interfaz. 
+
+Un ejemplo de sistema de diseño popular es el MaterialUI de Google, que, a pesar de que lo odie, se ha vuelto un estandar en estos años. Nosotros tendremos el nuestro propio basado en el Manual de Identidad Corporativa de la ULPGC.
+
+Link.
+
+2. Jerarquía: La jerarquía se define como el ordén en el que las personas ven las diferentes figuras en la pantalla. Si conseguimos modificar esta jerarquía conseguiremos que el usuario siempre siga el camino que nosotros queremos dentro de una página. Por ejemplo leer el título, ir la página de registrarse y probar el producto. Como veis entender este concepto es muy importante para conseguir que nuestro diseño cumpla la función que queramos. Las formas que tenemos de modificar esta dirección son varias. Veremos a continuación algunas de ellas.
+
+Ejemplo de la jerarquía.
+
+https://static-cse.canva.com/blob/600821/heirarchy.jpg
+
+3. Peso visual: El peso visual es una de las formas que tenemos de modifar esta jerarquía a través de darle mas peso a un elemento en la composición que a otro. ¿Cómo conseguimos esto? Provocando la diferenciación de un elemento a otro en tamaño, weight de la tipografía, contraste de colores.... aquí teneis algunos ejemplos
+
+Ejemplo de tamaño.
+
+En este ejemplo queremos que la persona 
+
+Ejemplo de tipografía.
+
+Contraste de colores.
+
+4. Equilibrio: Este es el más simple, toda interfaz tiene que mantener el equilibrio sino se le hace dificil de entender al ojo humano.
+
+Ejemplo:
+
+5. Diseño universal: 
+
+6. Regla Jakobs: Usa 
+
+
+
+
+
+
+# Frontend
+
+lenguajes:
+
+framework: coje tu código y lo transforma en javascript, html y css tradicional. encambio la libreria la llamas
+
+html: etiquetas, es un arbol se llama DOM. 
+css: define estilos para esas etiquetas.
+javascript: introducción, paradigma funcional es6, (!yuju existen clases pero no son objetos! prototype), parece concurrente pero es single threaded surprise motherfucker (event loop). 
+
+nosotros usaremos next implementa react como librería.
+
+# Backend
+
+python: 
+https:
+lenguaje: de verdad herencia (!puto self) y programacion funcional (lambdas) en armonia perfecta, si lo necesitas metes c++
+postgres
+ORM
+
+# Sistemas
+
+nginx (Servidor front)
+django (Servidor back)
+postgres ( Servidor db )
+
+docker ( Virtualización, el contenedor, la imagen, ventajas, inconvenientes )
+    - Envuelve toda la infraestructura
+    - Aporta un entorno estándarizado para el desarrollo
+
+Diagrama de infraestructura
+
+CI/CD
+DevOps
+
