@@ -1,4 +1,4 @@
-# **La guía del desarrollador web galáctico 🚀**
+    # **La guía del desarrollador web galáctico 🚀**
 
 Bienvenidos a la guía definitiva de la DEII para entender de una vez por todas el mapa general del desarrollo web. Pero no cualquier desarrollo web, sino el desarrollo web **GALÁCTICO.**
 
@@ -238,7 +238,6 @@ Abstrae la lógica de negocio haciendo de interfaz entre la base de datos y el
 frontend. El frontend (SSR) o el cliente (CSR) se comunican con este servidor para
 obtener la infomación necesaria para renderizar la página.
 <br>
-
 
 ### 4. Base de datos 
 Se trata de una máquina que ejecuta un [DBMS](https://en.wikipedia.org/wiki/Database#Database_management_system) y a la cual solo se debería poder acceder 
@@ -514,7 +513,208 @@ Typescript es una opción que sólida para llevar a cabo nuestro proyecto si lo 
 
 # Backend: Dónde ocurre la magia
 
-ORM, MVC, SERIALIZADORES, BASES DE DATOS, REST, ENDPOINT, ENRUTADOR
+Bueno es momento de hablar del backend. El backend como hemos visto antes será el que guarde nuestra lógica de negocio y se encargue de que se realice correctamente la persistencia de nuestros datos. 
+
+
+Hay infinidad formas de estructurar el backend, pero nuestro caso es concreto, queremos que nuestro backend sea una API (Application Programming Interface) desde la cual otros programas como por ejemplo la página web pueda acceder a ella de forma fácil y sencilla.
+
+Por lo tanto dividiremos la guía del backend en dos partes:
+1. La definición de la API
+2. La implementación detrás de la API
+
+
+##API
+En web existe un estandar muy extendido para crear estas APIs, ese es REST. Nosotros vamos a construir una RESTful API. Es decir una API totalmente siguiendo los principios rest
+Rest se basa en exponer una serie de recursos y acciones sobre esos recursos. Por ejemplo exponer el recurso del camarero, y permitir crear, modificar, actualizar ese recurso.
+
+Hablemos de cual es la estructura de nuestra petición. (Esto sale del HTTP PROTO):
+1. El header: 
+    1. El endpoint: url de la request
+    2. El verbo: acción a realizar
+    3. Authentication: que por ahora vamos a omitir.
+4. Los datos: El contenido de la petición.
+
+Como dice jack el destripador, vamos por partes.
+
+*El endpoint*
+
+En rest los endpoints son los nombres de los recursos a los que quieres acceder en plural, estos no pueden contener verbos. Pongamos de ejemplo la creación de una API para hoteles.
+
+Podríamos tener los siguientes endpoints:
+
+api.mihotel.com/clientes
+api.mihotel.com/restaurantes
+api.mihotel.com/trabajadores
+api.mihotel.com/canchas_de_futbol/
+
+Estos endpoints normalmente nos devolverán una lista páginada de por ejemplo, en el caso de /clientes, todos los clientes que existan.
+
+Imaginemos que solo queremos un cliente en concreto. Seguiriamos la siguiente estructura
+
+api.mihotel.com/clientes/:id
+
+¿Y si el cliente tiene reservas y queremos listarlas?
+
+pues:
+
+api.mihotel.com/clientes/:id/reservas
+
+y aquí tendríamos la lista de las reservas echas por el cliente, y así recursivamente, esto es llamado anidación de recursos y sirven para interpretar relaciones entre recursos. Es por ello que para tener una buena api primero tendremos que tener correctamente definida nuestra base de datos. Normalmente se recomienda no pasar el 3er nivel de profundidad en los endpoints ya se empieza a ensuciar nuestra api.
+
+*El verbo*
+
+El verbo nos indica la acción que queremos realizar sobre el recurso en concreto. Imaginemos que tenemos este endpoint
+
+api.mihotel.com/clientes/
+
+sobre este recurso podríamos listar todos los clientes pero también crear un cliente nuevo. Para eso sirven los verbos.
+
+Si nosotros hacemos GET api.mihotel.com/clientes/ nos devolverá la lista de clientes
+
+En cambio si hacemos POST mi.hotel.com/clientes/ nos permitirá enviarle los datos para registrar un nuevo cliente.
+
+La lista de verbos junto con su utilidad en REST:
+
+- GET: coger un recurso.
+- POST: crear un recurso
+- PATCH: Actualizar un recurso totalmente.
+- PUT: Actualizar un recurso parcialmente.
+- DELETE: Elimina un recurso
+
+
+Entonces reescribiendo los anteriores endpoints vamos a poner que verbos podremos usar en cada uno:
+
+api.mihotel.com/clientes GET, POST
+api.mihotel.com/clientes/:id GET, DELETE, PATCH PUT
+api.mihotel.com/restaurantes GET, POST
+api.mihotel.com/restaurantes/:id GET, DELETE, PATCH PUT
+....
+
+y asi sucesivamente.
+
+*El contenido*
+
+El contenido en REST normalmente se envía en formato JSON. ¿Qué es un JSON? Pues algo muy parecido a los diccionarios de python. Voy a poner un ejemplo 
+
+```
+{
+    id: 1,
+    name : John,
+    surname: Doe,
+    dni: 88320903M,
+    room: 153,
+}
+
+```
+
+Esta sería la representación de uno de nuestros recursos clientes.
+
+
+```
+[
+{
+    id: 1,
+    name : John,
+    surname: Doe,
+    dni: 88320903M,
+    room: 153,
+},
+{
+    id: 2,
+    name : May,
+    surname: Madam,
+    dni: 12015803M,
+    room: 153,
+},
+
+]
+```
+
+Esta la representación de una lista de nuestro recurso clientes.
+
+Cuando recojamos contenido de un endpoint nos devolverá o una lista de recursos o uno único, cuando creemos un nuevo recurso hay que mandarle la información en formato JSON sin los campos autogenerados, y para modificarlo pues el recurso con su id y las modificaciones echas.
+
+Perfecto ya sabemos que es REST!!
+
+*Ejemplos*
+
+Una librería nos ha pedido que hagamos una REST API para guardar, listar y buscar los libros que tienen. Después esta API la consumira una aplicación móvil para mostrarsela a los usuarios finales.
+
+Primero definamos nuestro recurso, este será libro y vendrá representado por el siguiente JSON:
+
+```
+{
+    id: number,
+    title: string,
+    description: string,
+    author: string
+}
+```
+
+nuestros endpoints serán los siguientes
+
+
+api.biblioteca.com/books/ GET, POST
+api.biblioteca.com/books/:id GET, PATCH, PUT, DELETE
+
+
+y ya tendríamos nuestra api lista.
+
+## Implementación 
+
+Una vez que ya tenemos la API lista habrá que ver como se implementan las funciones por detrás en el backend a si que vamos a bajarnos al barro y hablar de arquitectura.
+
+Nosotros para construir nuestro back vamos a usar Django. Un framework basado en MVT (Model View Template).
+
+*Modelo*
+
+El modelo es la capa relacionada con nuestros datos y su almacenamiento. Normalmente se implementa a través de un ORM (Object Relational Mapping) que nos ofrece una interfaz muy amigable para trabajar con bases de datos sin tener que hacer llamadas a pelo.
+
+El ORM se basa en, como sus siglas dicen, mapear una tabla de la base de datos a un objeto. Este objeto nos expondrá una seríe de funciones que nos dejarán acceder a los datos de la tabla y modficarlos.
+
+Pongamos un ejemplo con Django.
+
+
+```
+import model from django.db
+
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    subtitle = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+
+```
+
+esto se traduciría a la siguiente llamada en MySQL o algo por el estilo
+pero de esto nosotros no nos tenemos que preocupar por que ya lo hará el ORM por nosotros
+
+```
+CREATE TABLE Book(
+    id int,
+    title varchar(255),
+    author varchar(255)
+)
+
+```
+
+A su vez también nos permitirá coger los datos de la DB y hacer queriescon ese objeto
+
+```
+Book.objects.all() # coger todos los objetos
+
+new_book = Book("pepe", "pepe", "pepe")
+new_book.save() # guarda un nuevo registro en nuestra base de datos
+```
+
+Lo veis!! Muy fácil de usar.
+
+
+*Vista*
+
+
+La vista será el código que se ejecute cuando llames a un endpoint. y normalmente lo que hará es usar el ORM para coger la información que has pedido, convertirla en un JSON y devolverlá.
+
+
 
 # Sistemas: Linux uwu
 
@@ -622,7 +822,7 @@ En el entorno de desarrollo usaremos el servidor de desarrollo de
 [Django](https://www.djangoproject.com/) que permite editar el código fuente y ver 
 los cambios en tiempo real sin necesidad de compilar.
 
-En producción utilizaremos alguna de las opciones disponibles para desplegar Django.
+En producción utilizaremos alguna de las opciones disponibles para desplegar Django (Gunicorn, Uvicorn etc...).
 En principio nos quedará un contenedor capaz de responder a las solicitudes 
 necesarias para que la página web funcione (Carga de noticias, dudas frequentes, etc.).
 
