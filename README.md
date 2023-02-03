@@ -479,7 +479,7 @@ ORM
 
 # Sistemas: Linux uwu
 
-Vaya o eres muy curioso/a o definitivamente sois los pibes de sistemas. 
+Vaya o eres muy curioso/a o definitivamente eres el pibe de sistemas. 
 
 Bienvenidos al corazon de la máquina. El explorador espacial definitivo es capaz de
 reparar los motores y asegurarse de que todo está bien engrasado. 
@@ -490,8 +490,9 @@ facilitar el desarrollo y despliegue de este proyecto.
 ## Docker
 
 [Docker](https://www.geeksforgeeks.org/containerization-using-docker/) es la columna
-vertebral de toda nuestra infraestructura. Cada uno de los servidores que tenemos que poner a disposición del público se creará en un contenedor de docker distinto. Y tu
-te preguntarás: ¿Que es un contenedor de docker? 
+vertebral de toda nuestra infraestructura. Cada uno de los servidores que tenemos 
+que poner a disposición del público se creará en un contenedor de docker distinto. 
+Y tú te preguntarás: ¿Qué es un contenedor de docker? 
 
 En pocas palabras, se trata de una máquina virtual muy eficiente que solo debe 
 ejecutar un único proceso. Dispondremos entonces de tantos contenedores como 
@@ -520,22 +521,93 @@ ADD. La estructura por capas reduce el tiempo de reconstrucción en la imagen pu
 que solo hay volver a construir la capa que se quiere cambiar y las que estén por 
 encima.
 
-Para aprender más de docker usa este [enlace](https://docs.docker.com/get-started/).
+Para aprender más sobre docker usa este [enlace](https://docs.docker.com/get-started/).
 
-### Entornos docker 
+### Desarrollo y Producción
 
-docker ( Virtualización, el contenedor, la imagen, ventajas, inconvenientes )
-    - Envuelve toda la infraestructura
-    - Aporta un entorno estándarizado para el desarrollo
+Pero, ¿cómo encaja docker en nuestro proyecto? Docker tiene dos funciones principales.
+
+En primer lugar, se encargará de proporcionar un entorno de desarrollo homogéneo para
+todos los participantes. De esta manera se establece un entorno estándar que soluciona
+problemas de compatibilidad de versiones entre las herramientas que utilicemos. Este 
+*setup* permitirá, además, abstraer la complejidad del entorno de desarrollo al resto 
+de colaboradores teniendo que ejecutar un único comando para tener todo listo y 
+funcionando.
+
+En segundo lugar, compondrá la infraestura de producción. ¿Que significa producción?
+Simplemente es el término que se utiliza para referirnos a la aplicación desplegada 
+y lista para el cliente final. En esta etapa docker nos permitirá aislar todos los 
+servicios necesarios para desplegar la aplicación. La virtualización nos permite 
+hacer mejor uso de los recursos del servidor de la delegación. El aislamiento nos 
+ofrece seguridad adicional, en caso de que una de las aplicaciones 
+fueran vulneradas el atacante solo tendría acceso al contenedor. 
+
+A continuación se vuelve a mostrar el diagrama visto en [Infraestructura: El mapa](#infraestructura-el-mapa) para el modelo de *Hybrid Rendering*.
+
+![hybrid-rendering](./assets/hybrid-diagram.png)
+
+En producción cada uno de los componentes pertenecientes a DEII Server será un 
+contenedor de docker.
+
+### Dockerhub
+
+[Dockerhub](https://hub.docker.com/) es un servicio que docker pone a disposición de 
+sus usuarios para almacenar y compartir imágenes de docker. Lo utilizaremos para 
+almacenar tanto las imágenes de desarrollo como producción de forma que sean 
+fácilmente accesibles y los colaboradores no tengan que construir sus imágenes.
+
+Para aprender más sobre dockerhub puedes visitar la guía oficial 
+[aquí](https://docs.docker.com/docker-hub/)
+
+----
 
 ## Servicios
 
-nginx (Servidor front)
-django (Servidor back)
-postgres ( Servidor db )
+En este punto hablaremos sobre los programas concretos que utilizaremos para 
+desplegar la infraestructura tanto en desarrollo como en producción. En este momento
+aún no se ha decidido que aplicación se utilizará para el Image Server así que no se 
+contempla.
 
-## CI/CD
+### Frontend
 
-CI/CD
-DevOps
+En el entorno de desarrollo usaremos el servidor de desarrollo de Next que permite
+editar el código fuente y ver los cambios en tiempo real sin necesidad de compilar.
 
+En producción utilizaremos [nginx](https://www.nginx.com/) como servidor web. Un 
+servidor web es un programa capaz servir el HTML y JavaScript al cliente cuando un 
+cliente realiza un HTTP Request.
+
+### Backend
+
+En el entorno de desarrollo usaremos el servidor de desarrollo de 
+[Django](https://www.djangoproject.com/) que permite editar el código fuente y ver 
+los cambios en tiempo real sin necesidad de compilar.
+
+En producción utilizaremos alguna de las opciones disponibles para desplegar Django.
+En principio nos quedará un contenedor capaz de responder a las solicitudes 
+necesarias para que la página web funcione (Carga de noticias, dudas frequentes, etc.).
+
+### Data Base
+
+Para la base de datos utilizaremos el [contenedor oficial](https://hub.docker.com/_/postgres) 
+de [PostGres](https://www.postgresql.org/) tanto en desarrollo como en producción.
+Por supuesto la base de datos de producción no será accesible para los desarrolladores
+con el fin de garantizar la integridad de la información sino que trabajarán con una
+copia local de la misma.
+
+PostGreSQL o PostGres es DBMS como podría ser MySQL o Oracle DataBase. 
+
+## Continuos Integration and Continuos Deployment (CI/CD)
+
+[CI/CD](https://en.wikipedia.org/wiki/CI/CD) es el proceso de automatizar la 
+intergración del código en desarrollo y el proceso de despliegue con el objetivo
+de detectar defectos tempranamente, aumentar la productividad y obtener ciclos de 
+lanzamiento más cortos.
+
+Para lograr estos objetivos los cambios incrementales aportados por un desarrollador
+son compilados, procesados a través de una batería de tests que garantice la 
+funcionalidad y finalmente desplegados. Todo de forma automática.
+
+Aunque en el futuro se debe alcanzar un ciclo de CI/CD adecuado para la delegación 
+actualmente no es una prioridad y lo iremos construyendo en función de nuestras 
+necesidades.
