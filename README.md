@@ -282,7 +282,9 @@ Bueno viajero, que tal ha ido tu primer expedición? Tienes un poco cara de mare
 
 Te noto aturdido, te estarás preguntando ¿Qué es producto? Producto es todo y nada, es el infinito y el cero. Uhum Uhum... vale me dejo de tonterías. Producto es el area de una empresa que se encarga de ser intermediario entre el equipo de desarrollo y el equipo de negocio. Transforma las ideas locas de una empresa en prototipos viables listos para programar, midiendo el impacto real de los mismos una vez entregados al cliente final. 
 
-Las funciones que realizan los perfiles de producto son:
+Sin un departamento de producto muy bueno, es muy difícil que una empresa o Startup funcione. Es por ello que muchos VCs (Venture Capital) o BA (Business Angels) solo invierten en startups coon equipos de producto de renombre o que hayán demostrado capacidad para innovar y aportar valor. Un ejemplo de este tipo de VC es Itnig de Barcelona.
+
+Las funciones que realizan los perfiles de este tipo son:
 - Identificación de problemas (pains) de nuestro cliente
 - Ideación de funcionalidades que solventen esos problemas
 - Priorización de esas funcionalidades.
@@ -290,9 +292,11 @@ Las funciones que realizan los perfiles de producto son:
 - Testeo y evaluación del rendimiento de nuestro prototipo.
 - Delivery final al equipo de desarrollo.
 
-Este proceso sigue el llamado "Design Double Diamond"
+Este flujo sigue el esquema llamado "Double Diamond Design Process"
 
-Dentro de producto como os podreis imaginar hay varios roles: (estos roles suelen ser variables al igual que su función, dependen mucho de la empresa)
+![Double Diamond](./assets/Double_diamond.png)
+
+Dentro de producto como os podreis imaginar hay varios roles: (estos roles suelen ser variables al igual que su función en la empresa)
 - Product Manager
 - Product Designer
 - Product Marketer
@@ -304,25 +308,43 @@ nosotros nos centraremos en dos de ellos, el Product Manager y el Product Design
 
 ## Product Manager:
 
-El Product Manager se encarga de la primera fase del diseño: decidir que se va a hacer y priorizarlo.
+El Product Manager se encarga de la primera fase del diseño: research de problemas y priorización de funcionalidades.
 
 Hay dos reglas que todo Product Manager debe marcarse en la sangre:
 
 1. No creer nada hasta que no lo pruebes (A.K.A Lean Startup).
 2. Tomar decisiones en base a datos (A.K.A Data Driven Decisions o en su abreviación DDD).
 
-Su primer labor será hacer research del sector en el que se mueve, encontrando y verificando los problemas reales del cliente. Para esto puede apoyarse de metodologías como Lean Startup. Qué por cierto es la metodología que ha llevado Silicon Valley a donde esta ahora mismo. Esta se basa en el ciclo hipótesis, test y aprendizaje descrito en la imagen posterior. Pero bueno podríamos estar hablando días sobre esto.
+Su primer labor será hacer research del sector en el que se mueve, encontrando y verificando los problemas reales del cliente. Para esto puede apoyarse de metodologías como Lean Startup. Qué por cierto es la metodología que ha llevado Silicon Valley a donde esta ahora mismo. Esta se basa en el ciclo hipótesis, test y aprendizaje descrito en la imagen posterior.
 
+![Lean_Startup](./assets/lean-startup.jpg)
+
+Dentro de Lean Startup nos dan un consejo muy importante a la hora de definir y desarrollar un producto/funcionalidad. Crear MVPs e irlos iterando hasta alcanzar la versión final. ¿Esto que quiere decir? Imaginemos que el producto que queremos desarrollar es un coche, el coche tiene como objetivo llevar a Rubén desde Tafira (Punto A) hasta Las Palmas (Punto B) para ir al peluquero (que ya le hace falta). Como personas de producto podríamos hacer dos cosas:
+1. Decirle al equipo de dearrollo que haga primero las ruedas, después el carenado, después el motor... y a lo mejor en 3 años tenemos el coche listo
+2. Empezar por construir un patinete en 1 día, después una bicicleta, después una motocicleta y por último ya el coche.
+
+La diferencia entre el método 1 y el método dos esque si optas por el 1, tardarás 3 años en darte cuenta que rubén no se corta el pelo (su pelo es una objeto inmutable) y en el segundo 1 día. 
+
+A donde va esta metafora: es mejor crear productos que consigan, aunque de forma pobre, solucionar el problema de tu cliente desde el minuto 1, y después irlos iterando con el paso de tiempo, que hacer funcionalidades de forma muy perfeccionista para acabarte dando cuenta que el cliente no tiene ese problema y te has equivocado de antes.
+
+![MVP](mvp.png)
+
+![Mock_Up](./assets/wireframe-mockup-prototype.png)
 Su segunda función es idear funcionalidades que solventen los problemas encontrados, priorizandolas según su importancia. Una heurística, muy sencilla, pero popular, para hacer esto es usar la matriz effort/value que nos permite en muy poco tiempo identificar aquellas que aporten mas valor con el mínimo esfuerzo (Principio de Pareto). El output de esta fase deberá de ser un Product Roudmap, que se puede crear con Jira, Product Board o cualquier otro software pero la idea es que todo el equipo sepa que funcionalidades se van a desarrollar a largo plazo y que prioridades tienen. Mas tarde estas funcionalidades se convertiran en epics que el equipo de desarrollo tendrá que implementar.
+
+![Lean_Startup](./assets/effort-value-matrix.png)
+
+Mensaje muy importante!!! A la hora de definir una funcionalidad, sobretodo si esta es muy ambiciosa, es importante que se haga en interaciones de MVPS. Para empezar hablemos de que es 
+
+Este es un ejemplo de roadmap de producto realizado dentro del software productboard.
+
+![Product_Roadmap](./assets/roadmap-board-screen.png)
 
 Aquí terminá el trabajo del Product Manager y comienza el del Product Designer, aunque oviamente el Product Manager seguirá al tanto de todo el ciclo de desarrollo para comprobar que este yendo todo de la mejor manera posible.
 
-.- imagen product roadmap
-.- imagen effort value
-
 ## Product Designer:
 
-El product designer se encarga de: definir una funcionalidad y diseñar un prototipo final de la misma. Este prototipo será el entregable que el equipo de desarrollo cogerá y realizará la implementación. P.D: No cambies un prototipo final al no ser que quieras que algún frontend tire tu ordenador por la ventana un martes por la mañana.
+El product designer se encarga de la segunda fase del diseño: definir una funcionalidad y crear el prototipo final. Este prototipo será de alta fidelidad (High Fidelity) y se le entregará al equipo de desarrollo para que lo implemente. P.D: No cambies un prototipo final al no ser que quieras que algún frontend tire tu ordenador por la ventana un martes por la mañana.
 
 Las fases de este proceso son 4:
 1. Research e Inspiración: donde se tratará de buscar aplicaciones con funcionalidades parecidas, diseños ya echos por otros... (Dribbble es la herramienta que mas se usa para esta fase)
@@ -330,15 +352,14 @@ Las fases de este proceso son 4:
 3. Pasar los Fireframes a Mockups: es decir darle estilo a estos Mockups a través del sistema de diseño de nuestra organización
 4. Protipar: craer un prototipo que el equipo de desarrollo usará para comenzar a trabajar.
 
-- foto wireframe
-- foto mockup
-- video wireframe a mockup
+Todas y cada una de estas fases hay que validarlas con el equipo y con cliente final para asegurar que todo vaya bien. También si quieres poner cosas fancy hablate con el equipo de front para que te digan que pueden o que no pueden hacer, ya que es probable que si les pones a hacer un blur con fueguitos artificiales te acaben crucificando.
+
+![Mock_Up](./assets/wireframe-mockup-prototype.png)
+Wireframe, Mockup, Prototipo de Alta Fidelidad.
 
 las principales subcategorias del mismo son:
 - UX Designer: Encargados de desarrollar los wireframes.
 - UI Designer: Encargados de pasar los wireframes a mockups.
-
---foto ciclo lean startup
 
 
 # Frontend: Del prototípo a una aplicación real
