@@ -426,7 +426,7 @@ Como veis tiene un gran número de propiedades que podemos modificar de nuestro 
 body { background-color: var(--blue); }
 ```
 
-** SASS **
+**SASS**
 
 No voy a hablar mucho de el, solo comentar algunas de sus ventajas ya que esto es una guía introductoria. SaaS permite entre otras funcionalidades: herencia de estilos al mas puro estilo POO, uso de modulos independientes, variables fáciles de declarar, anidación de elementos unos en otros, código más legible etc...
 
