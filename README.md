@@ -425,7 +425,14 @@ Como veis tiene un gran número de propiedades que podemos modificar de nuestro 
 
 body { background-color: var(--blue); }
 ```
-Ahora hablemos de como interpreta CSS los elementos. Para CSS un elemento es un modelo caja
+Ahora hablemos de como interpreta CSS los elementos. Para CSS un elemento es un modelo caja, los principales elementos de este modelo son:
+- Content: El contenido de la caja, puede ser texto, imágenes, botones, contenedores etc... El tamaño se puede cambiar usando las propiedades width y hight
+- Padding: El relleno de la caja, a nivel visual, el espacio entre el borde del elemento y el contenido, se puede editar haciendo uso de la propiedad "padding"
+- Margin: El márgen de la caja, es decir decir el espacio del borde de la caja hacia otros elementos, se puede editar haciendo uso de la propiedad "margin"
+- Border: El borde de la caja, la linea que envuelve al contenido y el relleno de la caja, se puede editar haciendo uso de la propiedad "border"
+
+Diagrama de las capas del modelo caja:
+![Diagram](./assets/box-model.png)
 
 **SASS**
 
