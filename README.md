@@ -409,7 +409,7 @@ Como bien decíamos al final en un html estamos definiendo un árbol donde los p
 Bueno, seguramente, cuando hayas visto el formulario que he puesto arriba te ha dado cancer en los ojos de lo feo que és no? Pues aquí viene nuestro amigo CSS a salvarnos el culo. Para añadir css solo tendremos que crear un archivo con la extensión *.css y referenciarlo en el html, en el head (también puedes añadir inline styles o meter el css dentro del html pero hazlo solo si quieres que te dispare con una pistola en la cabeza yo personalmente). CSS aunque parezca raro si que es un lenguaje turing completo, aunque no nos vamos a parar en esto. Su principal utilidad es definir los estilos de nuestro html para que quede bien bonito. El código css se compone de primero una referencia al elemento que puede ser en forma de clase o id. Si es una clase pondremos un . delante del nombre, en cambio si es un id pondremos el #. Después añadiremos llaves y dentro pondremos todo el estilo
 
 ```
-.objeto{
+.clase-objeto{
    color: red;
    background-color: blue;
    font-size: 1.3em;
@@ -425,6 +425,7 @@ Como veis tiene un gran número de propiedades que podemos modificar de nuestro 
 
 body { background-color: var(--blue); }
 ```
+Ahora hablemos de como interpreta CSS los elementos. Para CSS un elemento es un modelo caja
 
 **SASS**
 
