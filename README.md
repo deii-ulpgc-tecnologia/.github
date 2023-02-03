@@ -430,7 +430,7 @@ body { background-color: var(--blue); }
 
 No voy a hablar mucho de el, solo comentar algunas de sus ventajas ya que esto es una guía introductoria. SaaS permite entre otras funcionalidades: herencia de estilos al mas puro estilo POO, uso de modulos independientes, variables fáciles de declarar, anidación de elementos unos en otros, código más legible etc...
 
-Voy a poner un cacho de código SaaS haciendo declarando variables para que veaís la diferencia. 
+Voy a poner un cacho de código SaaS declarando variables para que veaís la diferencia. 
 
 ```
 $border-dark: rgba($base-color, 0.88);
