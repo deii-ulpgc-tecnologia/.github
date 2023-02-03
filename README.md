@@ -77,7 +77,6 @@ contiene un código numérico indicando éxito o, en caso de fallo, la razón de
 Tanto la solicitud como la respuesta podrían incluir un payload, por ejemplo:
 - La solicitud podría contener la información de inicio de sesión.
 - La respuesta podría contener la información del usuario que ha iniciado sesión.
-cliente/servidor
 
 ## La página web tradicional
 
@@ -170,7 +169,7 @@ Renderización               |
       |                     |
 ```
 
-Un ejemplos de CSR es Angular.
+Un ejemplo de CSR es Angular.
 
 **Ventajas**:
 - Permite actualizar el contenido de la página sin necesidad de refrescar. Esto lo 
@@ -212,7 +211,7 @@ interactiva la renderizamos en el cliente.
 De esta forma obtenemos un mejor [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization) 
 sin la necesidad de sacrificar toda interactividad.
 
-## La Imagen Real
+## El verdadero mapa
 
 He de admitir que hasta ahora he estado mintiendo, bueno más bien he ocultado parte 
 de la verdad. Por la imagen que se ha pintado hasta el momento parece que hay dos 
@@ -220,42 +219,44 @@ agentes que interactuan: el cliente y el servidor, sin embargo, en realidad son 
 los interactuan en una página web moderna.
 
 
-### El cliente
+### 1. El cliente
 Este sigue siendo el navegador web del usuario que quiere acceder a la página. Nada ha
 cambiado.
 <br>
 
 
-### El servidor de frontend
+### 2. El servidor de frontend
 Frontend de aquí en adelante, es el servidor que hemos estado viendo hasta ahora. Se encarga de devolver el HTML (SSR) o el javascript (CSR) al cliente cuando este se conecta por primera vez
 a la página web.
 <br>
 
 
-### El servidor de backend
+### 3. El servidor de backend
 Backend de aquí en adelante, es el servidor que hemos estado ocultando hasta ahora. 
-En resumidas cuentas es el encargado de gestionar la lógica de negocio y hacer de 
-interfaz con la base de datos. En resumidas cuentas es quien genera el contenido de 
-la página web. El frontend (SSR) o el cliente (CSR) se comunican con este servidor 
-para obtener la infomación necesaria para renderizar la página.
+En pocas palabras es el encargado de generar el contenido de la página web. 
+Abstrae la lógica de negocio haciendo de interfaz entre la base de datos y el 
+frontend. El frontend (SSR) o el cliente (CSR) se comunican con este servidor para
+obtener la infomación necesaria para renderizar la página.
 <br>
 
 
-### Base de datos 
+### 4. Base de datos 
 Se trata de una máquina que ejecuta un [DBMS](https://en.wikipedia.org/wiki/Database#Database_management_system) y a la cual solo se debería poder acceder 
 a través del backend por motivos de seguridad.
 <br>
 
-### Servidor de Imágenes
-Se trata de un servidor de archivos estáticos. Su objetivo es contener las imágenes 
-que puedan ser referenciadas desde la página web a través de una URL.
+### 5. Servidor de imágenes
+Se trata de un servidor de archivos estáticos. Aunque en realidad este tipo de 
+servidores se pueden utilizar para almacenar cualquier tipo de archivo lo normal 
+es utilizarlos para almacenar las imágenes a las que la página web hace referencia
+a través de URLs.
 <br>
 
+----
 
 A continuación se muestran los **verdaderos diagramas de los diferentes modelos de 
-desarrollo web**. Se excluye el servidor de imágenes pero este sería accedido, 
-siempre por el cliente, para cada imagen que se incluya en la página web.
-
+desarrollo web**. Se utiliza como ejemplo un cliente cualquiera y el servidor la delegación. Los contenedores representan las máquinas físicas mientras que los 
+componentes dentro de estas representan procesos. 
 
 ### SSR 
 
@@ -267,7 +268,7 @@ siempre por el cliente, para cada imagen que se incluya en la página web.
 Los pasos 3. y 7. pueden llevarse a cabo multiples veces
 a medida que haga falta actualizar información.
 
-### Hybrid rendering 
+### Hybrid Rendering 
 ![Hybrid Diagram](./assets/hybrid-diagram.png)
 
 Los pasos 10. y 11. pueden llevarse a cabo multiples veces
@@ -362,15 +363,62 @@ ORM
 
 # Sistemas: Linux uwu
 
-nginx (Servidor front)
-django (Servidor back)
-postgres ( Servidor db )
+Vaya o eres muy curioso/a o definitivamente sois los pibes de sistemas. 
+
+Bienvenidos al corazon de la máquina. El explorador espacial definitivo es capaz de
+reparar los motores y asegurarse de que todo está bien engrasado. 
+
+A continuación se describen las principales tecnologías que se utilizarán para 
+facilitar el desarrollo y despliegue de este proyecto.
+
+## Docker
+
+[Docker](https://www.geeksforgeeks.org/containerization-using-docker/) es la columna
+vertebral de toda nuestra infraestructura. Cada uno de los servidores que tenemos que poner a disposición del público se creará en un contenedor de docker distinto. Y tu
+te preguntarás: ¿Que es un contenedor de docker? 
+
+En pocas palabras, se trata de una máquina virtual muy eficiente que solo debe 
+ejecutar un único proceso. Dispondremos entonces de tantos contenedores como 
+servicios queremos desplegar, ejecutanto cada uno de ellos el servicio en cuestión.
+
+### Imágenes
+
+Una imagen de docker es, muy burdamente, una ISO que quemas en un pen para 
+instalar un OS. Para ser más específicos se trata de un archivo compuesto por 
+distintas capas que todas juntas cumplen con los requisitos necesarios para ejecutar
+un cierto programa.
+
+Una imagen de docker sirve para crear contenedores. Estos se instanciarán y 
+ejecutarán el programa especificado en su imagen. Una imagen puede estar relacionada
+con muchos contenedores pero un contenedor solo está relacionado con una imagen.
+
+Las capas que componen una imagen se especifican en el proceso de creación.
+
+
+### El Dockerfile
+
+Este fichero describe como crear una imagen. Consiste en una secuencia de [órdenes 
+de docker](https://docs.docker.com/engine/reference/builder/). Algunos comandos
+específicos crean capas dentro del fichero de la imagen, por ejemplo: RUN, COPY y 
+ADD. La estructura por capas reduce el tiempo de reconstrucción en la imagen puesto 
+que solo hay volver a construir la capa que se quiere cambiar y las que estén por 
+encima.
+
+Para aprender más de docker usa este [enlace](https://docs.docker.com/get-started/).
+
+### Entornos docker 
 
 docker ( Virtualización, el contenedor, la imagen, ventajas, inconvenientes )
     - Envuelve toda la infraestructura
     - Aporta un entorno estándarizado para el desarrollo
 
-Diagrama de infraestructura
+## Servicios
+
+nginx (Servidor front)
+django (Servidor back)
+postgres ( Servidor db )
+
+## CI/CD
 
 CI/CD
 DevOps
