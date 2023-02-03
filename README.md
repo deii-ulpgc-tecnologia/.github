@@ -408,7 +408,7 @@ Como bien decíamos al final en un html estamos definiendo un árbol donde los p
 Bueno, seguramente, cuando hayas visto el formulario que he puesto arriba te ha dado cancer en los ojos de lo feo que és no? Pues aquí viene nuestro amigo CSS a salvarnos el culo. Para añadir css solo tendremos que crear un archivo con la extensión *.css y referenciarlo en el html, en el head (también puedes añadir inline styles o meter el css dentro del html pero hazlo solo si quieres que te dispare con una pistola en la cabeza yo personalmente). CSS aunque parezca raro si que es un lenguaje turing completo, aunque no nos vamos a parar en esto. Su principal utilidad es definir los estilos de nuestro html para que quede bien bonito. El código css se compone de primero una referencia al elemento que puede ser en forma de clase o id. Si es una clase pondremos un . delante del nombre, en cambio si es un id pondremos el #. Después añadiremos llaves y dentro pondremos todo el estilo
 
 ```
-.objeto{
+.clase-objeto{
    color: red;
    background-color: blue;
    font-size: 1.3em;
@@ -424,6 +424,14 @@ Como veis tiene un gran número de propiedades que podemos modificar de nuestro 
 
 body { background-color: var(--blue); }
 ```
+Ahora hablemos de como interpreta CSS los elementos. Para CSS un elemento es un modelo caja, los principales elementos de este modelo son:
+- Content: El contenido de la caja, puede ser texto, imágenes, botones, contenedores etc... El tamaño se puede cambiar usando las propiedades width y hight
+- Padding: El relleno de la caja, a nivel visual, el espacio entre el borde del elemento y el contenido, se puede editar haciendo uso de la propiedad "padding"
+- Margin: El márgen de la caja, es decir decir el espacio del borde de la caja hacia otros elementos, se puede editar haciendo uso de la propiedad "margin"
+- Border: El borde de la caja, la linea que envuelve al contenido y el relleno de la caja, se puede editar haciendo uso de la propiedad "border"
+
+Diagrama de las capas del modelo caja:
+![Diagram](./assets/box-model.png)
 
 **SASS**
 
