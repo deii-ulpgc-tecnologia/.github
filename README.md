@@ -276,8 +276,6 @@ a medida que haga falta actualizar información.
 
 # Producto: Del problema a la solución
 
-## Aterrizaje en el planeta producto:
-
 Bueno viajero, que tal ha ido tu primer expedición? Tienes un poco cara de mareado. Pero bueno, tranquilo que has aterricado en el planeta más alucinante de todos. El planeta **Producto**. 
 
 Te noto aturdido, te estarás preguntando ¿Qué es producto? Producto es todo y nada, es el infinito y el cero. Uhum Uhum... vale me dejo de tonterías. Producto es el area de una empresa que se encarga de ser intermediario entre el equipo de desarrollo y el equipo de negocio. Transforma las ideas locas de una empresa en prototipos viables listos para programar, midiendo el impacto real de los mismos una vez entregados al cliente final. 
@@ -362,6 +360,98 @@ las principales subcategorias del mismo son:
 
 
 # Frontend: Del prototípo a una aplicación real
+
+Es hora de hablar del frontend, la programación para los brogrammers, esos seres de luz que a pesar de programar 10h al día estan mamados se despiertan a las 5 am y lo primero que hacen es tomarse un batido de proteínas. 
+
+Empecemos por lo básico. 
+
+**¿Qué es el frontend?**
+
+El frontend no es nada más que la interfaz de usuario que el cliente ve en su ordenador cuando entra a nuestra página/app web. Esta interfaz la construye el navegador a través del js, html, y css entregado por el servidor. Así es, el navegador no es nada más que un programita que sabe interpretar todos esos archivos. Es más, seguro que eres un curioso y has echo click derecho alguna vez en una página web y le has dado a inspeccionar. Vaya traviesillo.
+
+Si haces eso ahora mismo veras por una parte primero el html de la página, después si clicas en un elemento veras su css, y por último arriba tendrás un apartado que se llama consola, donde podrás ejecutar ordenes en javascript. Así es, los navegadores incluyen dentro un interprete de js. El más popular hoy en día es el V8 creado por google e incluído en google-chrome, opera, brave, ms edge... Este interpreté es el mismo que tiempo después de su creación, un equipo de desarrolladores tubieron una idea curiosa, sacarlo del navegador y distribuírlo como un programa independiente. Y así fué como nació "nodejs".
+
+## HTML
+
+Bueno volvamos a la conversación. Empecemos hablando de HTML. HTML es un lenguaje de etiquetas es decir, no, no es un lenguaje de programación. Se compone de una seríe de tags que van anidandose unos dentro de otros en forma de árbol como podeis ver en la imagen de abajo. Todos estos tags tienen dos propiedades siempre que nos van a ser de mucha utilidad, una la id, y otra la class (clase). Nota. Id solo puede haber una, pero clases le podemos específicar muchas a nuestro elemento separadas por espacios.
+
+```
+<html>
+   <head>
+   </head>
+   <body>
+      <h1 id="title" class="title other">Hello world</h1>
+   </body>
+<html>
+```
+HTML incluye bastantes tags para hacernos la vida mas fácil, como por ejemplo crear formularios (Una cosa que cómo frontend harás un septillón de veces) a si que usalos que Tim Berners-Lee no los ha puesto ahí para que los ignores. 
+   
+```
+<form action="/action_page.php">
+  <label for="name">Enter name:</label><br>
+  <input type="text" id="name" name="name" value=""><br>
+  <label for="passwd">Enter password:</label><br>
+  <input type="password" id="passwd" name="passwd" value=""><br><br>
+  <input type="submit" value="Submit">
+</form>
+```
+
+Esto nos crearía un formulario tal que así:
+
+![form](./assets/form-example.png)
+
+Es importante usar los tags correctamente ya que afectara al posicionamiento de nuestra página en google, la accesibilidad de la misma, la legibilidad de nuestro código etc... Al uso correcto de estos tags se llama HTML semántico.
+
+Como bien decíamos al final en un html estamos definiendo un árbol donde los padres son los contenedores y los hijos los contenidos. Aquí entra el concepto de DOM (Document Object Mapping). el DOM es la estructura de datos en forma de árbol que almacena nuestro navegador para representar la interfaz que vemos. cómo todo árbol el DOM cuenta con nodos, los cuales vendrían a ser cada uno de los tags que hemos escrito en nuestro html. Podemos acceder a este DOM a través de la DOM API que nos brinda el navegador para modificarlo como queramos usando javascript. La ventaja de javascript es que podemos sin necesidad de volver a pedir otro html al servidor actualizar la interfaz adecuandala a nuestras necesidades de forma interactiva. Pero de este hablaremos más delante
+
+## CSS
+
+Bueno, seguramente, cuando hayas visto el formulario que he puesto arriba te ha dado cancer en los ojos de lo feo que és no? Pues aquí viene nuestro amigo CSS a salvarnos el culo. Para añadir css solo tendremos que crear un archivo con la extensión *.css y referenciarlo en el html, en el head (también puedes añadir inline styles o meter el css dentro del html pero hazlo solo si quieres que te dispare con una pistola en la cabeza yo personalmente). CSS aunque parezca raro si que es un lenguaje turing completo, aunque no nos vamos a parar en esto. Su principal utilidad es definir los estilos de nuestro html para que quede bien bonito. El código css se compone de primero una referencia al elemento que puede ser en forma de clase o id. Si es una clase pondremos un . delante del nombre, en cambio si es un id pondremos el #. Después añadiremos llaves y dentro pondremos todo el estilo
+
+```
+.objeto{
+   color: red;
+   background-color: blue;
+   font-size: 1.3em;
+}
+
+```
+Como veis tiene un gran número de propiedades que podemos modificar de nuestro elemento. Desde color, fuentes etc... También nos permité declarar variables, útiles para reciclar colores por ejemplo, realizar imports y separarlo por partes etc...  Pero como veis aunque seán buenas funcionalidades son un poco "boilerplate" es por eso que para nuestro proyecto envez de css a pelo usaremos SaaS.
+
+```
+:root {
+  --blue: #1e90ff;
+}
+
+body { background-color: var(--blue); }
+```
+
+** SASS **
+
+No voy a hablar mucho de el, solo comentar algunas de sus ventajas ya que esto es una guía introductoria. SaaS permite entre otras funcionalidades: herencia de estilos al mas puro estilo POO, uso de modulos independientes, variables fáciles de declarar, anidación de elementos unos en otros, código más legible etc...
+
+Voy a poner un cacho de código SaaS haciendo declarando variables para que veaís la diferencia. 
+
+```
+$border-dark: rgba($base-color, 0.88);
+
+.alert {
+  border: 1px solid $border-dark;
+}
+```
+Mucho más sencillo que usar el var ese por ahí enmedio y el :root no? Lo guapo de sass esque todo el css que escribas es totalmente compatible y funciona en un documento tipo .scss (Una de las extensiones que permite sass) oesa que es la leche.
+
+## Javascript
+
+Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript. Su nombre nos hace pensar en la programación orientada a objetos de Java, un estilo tipado, escalable... Pues todo lo contrario, javascript ni es orientado a objetos como tal, ni es tipado ni nada. Hablemos de sus carácterísticas.
+
+Carácteristicas:
+- Alto nivel, muy fácil de aprender
+- Tiene tipado dinámico, no hace falta tipar.
+- Los objetos son prototípos (este es un concepto complicado de entender, no lo explicaré aquí).
+- Paradigma totalmente funcional, y a mi juicio bien implementado. 
+- Single Threaded aunque admite algo parecido a la concurrencia pero sin paralelismo.
+- Es capaz de acceder al DOM y modificarlo a su gusto.
 
 lenguajes:
 
