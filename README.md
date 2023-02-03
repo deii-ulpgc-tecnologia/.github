@@ -327,9 +327,8 @@ La diferencia entre el método 1 y el método dos esque si optas por el 1, tarda
 
 A donde va esta metafora: es mejor crear productos que consigan, aunque de forma pobre, solucionar el problema de tu cliente desde el minuto 1, y después irlos iterando con el paso de tiempo, que hacer funcionalidades de forma muy perfeccionista para acabarte dando cuenta que el cliente no tiene ese problema y te has equivocado de antes.
 
-![MVP](mvp.png)
+![MVP](./assets/mvp.png)
 
-![Mock_Up](./assets/wireframe-mockup-prototype.png)
 Su segunda función es idear funcionalidades que solventen los problemas encontrados, priorizandolas según su importancia. Una heurística, muy sencilla, pero popular, para hacer esto es usar la matriz effort/value que nos permite en muy poco tiempo identificar aquellas que aporten mas valor con el mínimo esfuerzo (Principio de Pareto). El output de esta fase deberá de ser un Product Roudmap, que se puede crear con Jira, Product Board o cualquier otro software pero la idea es que todo el equipo sepa que funcionalidades se van a desarrollar a largo plazo y que prioridades tienen. Mas tarde estas funcionalidades se convertiran en epics que el equipo de desarrollo tendrá que implementar.
 
 ![Lean_Startup](./assets/effort-value-matrix.png)
