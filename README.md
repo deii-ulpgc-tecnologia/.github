@@ -523,15 +523,17 @@ Typescript es una opción que sólida para llevar a cabo nuestro proyecto si lo 
 
 Bueno es momento de hablar del backend. El backend como hemos visto antes será el que guarde nuestra lógica de negocio y se encargue de que se realice correctamente la persistencia de nuestros datos. 
 
-
-Hay infinidad formas de estructurar el backend, pero nuestro caso es concreto, queremos que nuestro backend sea una API (Application Programming Interface) desde la cual otros programas como por ejemplo la página web pueda acceder a ella de forma fácil y sencilla.
+Hay infinidad formas de estructurar el backend, pero nuestro caso es concreto, 
+queremos que nuestro backend sea una API (Application Programming Interface) desde 
+la cual otros programas como por ejemplo la página web pueda acceder a ella de forma 
+fácil y sencilla.
 
 Por lo tanto dividiremos la guía del backend en dos partes:
 1. La definición de la API
 2. La implementación detrás de la API
 
 
-##API
+## API
 En web existe un estandar muy extendido para crear estas APIs, ese es REST. Nosotros vamos a construir una RESTful API. Es decir una API totalmente siguiendo los principios rest
 Rest se basa en exponer una serie de recursos y acciones sobre esos recursos. Por ejemplo exponer el recurso del camarero, y permitir crear, modificar, actualizar ese recurso.
 
@@ -602,7 +604,8 @@ y asi sucesivamente.
 
 *El contenido*
 
-El contenido en REST normalmente se envía en formato JSON. ¿Qué es un JSON? Pues algo muy parecido a los diccionarios de python. Voy a poner un ejemplo 
+El contenido en REST normalmente se envía en formato JSON. ¿Qué es un JSON? Pues algo 
+muy parecido a los diccionarios de python. Voy a poner un ejemplo :
 
 ```
 {
@@ -640,7 +643,10 @@ Esta sería la representación de uno de nuestros recursos clientes.
 
 Esta la representación de una lista de nuestro recurso clientes.
 
-Cuando recojamos contenido de un endpoint nos devolverá o una lista de recursos o uno único, cuando creemos un nuevo recurso hay que mandarle la información en formato JSON sin los campos autogenerados, y para modificarlo pues el recurso con su id y las modificaciones echas.
+Cuando recojamos contenido de un endpoint nos devolverá o una lista de recursos o 
+uno único, cuando creemos un nuevo recurso hay que mandarle la información en formato 
+JSON sin los campos autogenerados, y para modificarlo pues el recurso con su id y las
+modificaciones echas.
 
 Perfecto ya sabemos que es REST!!
 
@@ -678,7 +684,7 @@ Nosotros para construir nuestro back vamos a usar Django. Un framework basado en
 
 El modelo es la capa relacionada con nuestros datos y su almacenamiento. Normalmente se implementa a través de un ORM (Object Relational Mapping) que nos ofrece una interfaz muy amigable para trabajar con bases de datos sin tener que hacer llamadas a pelo.
 
-El ORM se basa en, como sus siglas dicen, mapear una tabla de la base de datos a un objeto. Este objeto nos expondrá una seríe de funciones que nos dejarán acceder a los datos de la tabla y modficarlos.
+El ORM se basa en, como sus siglas dicen, mapear una tabla de la base de datos a un objeto. Este objeto nos expondrá una seríe de funciones que nos dejarán acceder a los datos de la tabla y modificarlos.
 
 Pongamos un ejemplo con Django.
 
@@ -705,7 +711,7 @@ CREATE TABLE Book(
 
 ```
 
-A su vez también nos permitirá coger los datos de la DB y hacer queriescon ese objeto
+A su vez también nos permitirá coger los datos de la DB y hacer *queries* con ese objeto
 
 ```
 Book.objects.all() # coger todos los objetos
@@ -720,9 +726,9 @@ Lo veis!! Muy fácil de usar.
 *Vista*
 
 
-La vista será el código que se ejecute cuando llames a un endpoint. y normalmente lo que hará es usar el ORM para coger la información que has pedido, convertirla en un JSON y devolverlá.
-
-
+La vista será el código que se ejecute cuando llames a un endpoint. Normalmente lo 
+que hará es usar el ORM para coger la información que has pedido, convertirla en un 
+JSON y devolverlá.
 
 # Sistemas: Linux uwu
 
