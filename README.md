@@ -443,39 +443,78 @@ Mucho más sencillo que usar el var ese por ahí enmedio y el :root no? Lo guapo
 
 ## Javascript
 
-Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript. Js es un lenguaje de alto nivel, 4orientado  a prototipos, de tipado din
+Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript como su propio nombre sugiere no tiene absolutamente nada que ver con la programación que conociste en Java.
+
+Sus características son:
+- Lenguaje de alto nivel, por lo tanto fácil de aprender
+- Se puede escribir con ; o sin ellos.
+- Tiene un paradigma funcional muy bien trabajado.
+- Es un lenguaje basado en prototipos una especie de POO extraña.
+- Su tipado es dinámico.
+- Incluye asincronismo outofthebox.
+
+¿Para que vamos a usar Javascript? Pues como bien dije antes a través de el podemos hacer dos cosas principalmente:
+
+1. Modificar el DOM, creando una página web más reactiva ya que como vimos antes tenemos acceso a todos los elementos desde su interfaz.
+
+```
+const element = getElementById("boton");
+element.classList.add("nuevo estilo");
+```
+
+2. Llamar a nuestro backend para conseguir información que usaremos para refrescar la página sin pedir de nuevo un html.
 
 ```
 
+async function getUsers(){
+    const response = await axios.get("/users")
+    return response.data
+}
+
+const users = getUsers();
 
 ```
 
-**Tiene tipado dinámico, no hace falta tipar.**
+Javascript consigue hacer estas llamadas al backend sin paralizar la interfaz usuario ni un momento pero... ¿Cómo lo hace? ¿Implementa concurrencia, paralelismo o algo por el estilo? No! JS es totalmente single threaded. Pero consigue esto gracias a su ciclo de vida llamado Event Loop, aunque esto no nos interesa por ahora entenderlo. 
 
-**Los objetos son prototípos (este es un concepto complicado de entender, no lo explicaré aquí).**
+**TYPESCRIPT**
 
-**Paradigma totalmente funcional, y a mi juicio bien implementado.**
+Bueno, hemos visto un poquito de código javascript, parece bonito y bastante funcional pero cuando tienes una codebase extensa y tu producto comienza a escalar es otra película. Es por eso que usaremos Typescript, un lenguaje creado por nuestra Evil Corp favorita Microsoft.
 
-**Single Threaded**
+Typescript es la versión para adultos de JS. Nos añade tipado estático, una POO bastante sólida donde poder sacar a relucir nuestras Java Skills, y alguna que otra optimización de rendimiento.
 
-**capaz de acceder al DOM y modificarlo**
+De esta forma podremos llegar a acuerdos rápidos entre el backend y el frontend de la estructura de los datos que se nos van a enviar y tiparlas por el camino. Estos son los llamados Json Contracts.
 
+Vamos a hacer una cosa, reescribamos el código de antes entero en typescript.
 
-framework: coge tu código y lo transforma en javascript, html y css tradicional. encambio la libreria la llamas
+```
+interface User{
+    id: number,
+    username: string,
+    first_name: string,
+    last_name : string
+}
 
-html: etiquetas, es un arbol se llama DOM. 
-css: define estilos para esas etiquetas.
-javascript: introducción, paradigma funcional es6, (!yuju existen clases pero no son objetos! prototype), parece concurrente pero es single threaded surprise motherfucker (event loop). 
+async function getUsers() : User[] {
+    const response : AxiosResponse<User[]> = await axios.get("/users")
+    if(response.status == 400)
+        return response.data
+    return response.error
+}
 
-nosotros usaremos next implementa react como librería.
+//Aqui users ya estaría tipado pues hemos puesto el tipo de retorno de getUsers()
+const users = getUsers();
+
+```
+
+Whuoala, ya tenemos nuestro código de antes tipado perfectamente con muy poco esfuerzo.
+
+Typescript es una opción que sólida para llevar a cabo nuestro proyecto si lo que buscamos es escalabilidad.
+
 
 # Backend: Dónde ocurre la magia
 
-python: 
-https:
-lenguaje: de verdad herencia (!puto self) y programacion funcional (lambdas) en armonia perfecta, si lo necesitas metes c++
-postgres
-ORM
+ORM, MVC, SERIALIZADORES, BASES DE DATOS, REST, ENDPOINT, ENRUTADOR
 
 # Sistemas: Linux uwu
 
