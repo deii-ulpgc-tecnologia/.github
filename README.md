@@ -258,21 +258,20 @@ siempre por el cliente, para cada imagen que se incluya en la página web.
 
 
 ### SSR 
-```
-          HTML                Contenido de la página              Información en crudo
-Cliente <------> Frontend <---------------------------> Backend <---------------------> DB
-```
+
+![SSR Diagram](./assets/ssr-diagram.png)
 
 ### CSR 
-```
-          Javascript
-Cliente <------------> Frontend 
-   ^
-   | Contenido de la página             Información en crudo
-   |------------------------> Backend <----------------------> DB
-```
+![CSR Diagram](./assets/csr-diagram.png)
+
+Los pasos 3. y 7. pueden llevarse a cabo multiples veces
+a medida que haga falta actualizar información.
 
 ### Hybrid rendering 
+![Hybrid Diagram](./assets/hybrid-diagram.png)
+
+Los pasos 10. y 11. pueden llevarse a cabo multiples veces
+a medida que haga falta actualizar información.
 
 # Producto: Del problema a la solución
 
