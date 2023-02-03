@@ -443,17 +443,23 @@ Mucho más sencillo que usar el var ese por ahí enmedio y el :root no? Lo guapo
 
 ## Javascript
 
-Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript. Su nombre nos hace pensar en la programación orientada a objetos de Java, un estilo tipado, escalable... Pues todo lo contrario, javascript ni es orientado a objetos como tal, ni es tipado ni nada. Hablemos de sus carácterísticas.
+Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript. Js es un lenguaje de alto nivel, 4orientado  a prototipos, de tipado din
 
-Carácteristicas:
-- Alto nivel, muy fácil de aprender
-- Tiene tipado dinámico, no hace falta tipar.
-- Los objetos son prototípos (este es un concepto complicado de entender, no lo explicaré aquí).
-- Paradigma totalmente funcional, y a mi juicio bien implementado. 
-- Single Threaded aunque admite algo parecido a la concurrencia pero sin paralelismo.
-- Es capaz de acceder al DOM y modificarlo a su gusto.
+```
 
-lenguajes:
+
+```
+
+**Tiene tipado dinámico, no hace falta tipar.**
+
+**Los objetos son prototípos (este es un concepto complicado de entender, no lo explicaré aquí).**
+
+**Paradigma totalmente funcional, y a mi juicio bien implementado.**
+
+**Single Threaded**
+
+**capaz de acceder al DOM y modificarlo**
+
 
 framework: coge tu código y lo transforma en javascript, html y css tradicional. encambio la libreria la llamas
 
