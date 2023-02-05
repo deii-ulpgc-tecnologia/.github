@@ -287,7 +287,7 @@ Bueno viajero, que tal ha ido tu primer expedición? Tienes un poco cara de mare
 
 Te noto aturdido, te estarás preguntando ¿Qué es producto? Producto es todo y nada, es el infinito y el cero. Uhum Uhum... vale me dejo de tonterías. Producto es el area de una empresa que se encarga de ser intermediario entre el equipo de desarrollo y el equipo de negocio. Transforma las ideas locas de una empresa en prototipos viables listos para programar, midiendo el impacto real de los mismos una vez entregados al cliente final.
 
-Sin un departamento de producto muy bueno, es muy difícil que una empresa o Startup funcione. Es por ello que muchos VCs (Venture Capital) o BA (Business Angels) solo invierten en startups coon equipos de producto de renombre o que hayán demostrado capacidad para innovar y aportar valor. Un ejemplo de este tipo de VC es Itnig de Barcelona.
+Sin un departamento de producto muy bueno, es muy difícil que una empresa o Startup funcione. Es por ello que muchos VCs (Venture Capital) o BA (Business Angels) solo invierten en startups con equipos de producto de renombre o que hayán demostrado capacidad para innovar y aportar valor. Un ejemplo de este tipo de VC es Itnig de Barcelona.
 
 Las funciones que realizan los perfiles de este tipo son:
 
@@ -357,7 +357,7 @@ Las fases de este proceso son 4:
 
 1. Research e Inspiración: donde se tratará de buscar aplicaciones con funcionalidades parecidas, diseños ya echos por otros... (Dribbble es la herramienta que mas se usa para esta fase)
 2. Crear Wireframes: Los wireframes son el esqueleto de nuestro diseño, nos indican la posición de los elementos, los CTAs (call to actions), información contenida dentro de los mismos pero sin ningún tipo de estilo.
-3. Pasar los Fireframes a Mockups: es decir darle estilo a estos Mockups a través del sistema de diseño de nuestra organización
+3. Pasar los Wireframes a Mockups: es decir darle estilo a estos Mockups a través del sistema de diseño de nuestra organización
 4. Protipar: craer un prototipo que el equipo de desarrollo usará para comenzar a trabajar.
 
 Todas y cada una de estas fases hay que validarlas con el equipo y con cliente final para asegurar que todo vaya bien. También si quieres poner cosas fancy hablate con el equipo de front para que te digan que pueden o que no pueden hacer, ya que es probable que si les pones a hacer un blur con fueguitos artificiales te acaben crucificando.
@@ -492,7 +492,6 @@ body {
 ```
 
  Como podéis observar en el ejemplo de abajo aunque sean buenas *features* suponen mucho código "boilerplate" es por eso que para nuestro proyecto envez de css a pelo usaremos **SASS**.
-
 
 Hablemos ahora de como funciona css por detrás. Para css todos los elementos son cajas y dichas cajas vienen definidas por las siguientes propiedades:
 
@@ -686,15 +685,14 @@ _El contenido_
 El contenido en REST normalmente se envía en formato JSON. ¿Qué es un JSON? Pues algo
 muy parecido a los diccionarios de python. Voy a poner un ejemplo :
 
-```
+```JSON
 {
-    id: 1,
-    name : John,
-    surname: Doe,
-    dni: 88320903M,
-    room: 153,
+    "id": 1,
+	"name ": "John",
+	"surname": "Doe",
+	"dni": "88320903M",
+    "room": 153,
 }
-
 ```
 
 Sin embargo ¿Cómo es un JSON que contiene más de un recurso? La otra estructura de 
@@ -704,18 +702,18 @@ hicieramos GET en `api.mihotel.com/clientes` obtendríamos la siguiente respuest
 ```JSON
 [
     {
-        id: 1,
-        name : John,
-        surname: Doe,
-        dni: "88320903M",
-        room: 153,
+        "id": 1,
+        "name": "John",
+		"surname": "Doe",
+        "dni": "88320903M",
+        "room": 153,
     },
     {
-        id: 2,
-        name : May,
-        surname: Madam,
-        dni: "12015803M",
-        room: 153,
+        "id": 2,
+        "name": "May",
+        "surname": "Madam",
+        "dni": "12015803M",
+        "room": 153,
     }
 ]
 ```
@@ -734,9 +732,9 @@ _Ejemplos_
 
 Una librería nos ha pedido que hagamos una REST API para guardar, listar y buscar los libros que tienen. Después esta API la consumira una aplicación móvil para mostrarsela a los usuarios finales.
 
-Primero definamos nuestro recurso, este será libro y vendrá representado por la siguiente JSON:
+Primero definamos nuestro recurso, este será libro y vendrá representado por la siguiente estructura:
 
-```
+```TYPESCRIPT
 {
     id: number,
     title: string,
@@ -747,10 +745,11 @@ Primero definamos nuestro recurso, este será libro y vendrá representado por l
 
 nuestros endpoints serán los siguientes
 
-api.biblioteca.com/books/ GET, POST
-api.biblioteca.com/books/:id GET, PATCH, PUT, DELETE
+`api.biblioteca.com/books/` GET, POST
 
-y ya tendríamos nuestra api lista.
+`api.biblioteca.com/books/:id` GET, PATCH, PUT, DELETE
+
+y ya tendríamos el diseño de nuestra API lista.
 
 ## Implementación
 
@@ -840,9 +839,9 @@ este print nos devolverá lo siguiente
 
 ```JSON
 {
-    title : "Mistborn",
-    subtitle : "El Imperio Final",
-    author: "Brandom Sanderson"
+    "title": "Mistborn",
+    "subtitle": "El Imperio Final",
+    "author": "Brandom Sanderson"
 }
 ```
 
@@ -854,9 +853,7 @@ Para definir la vista y los metodos permitidos sobre ella django rest framework 
 
 La vista que crearemos será la del siguiente endpoint:
 
-```
-www.mibiblioteca.com/first_book/ GET
-```
+`api.biblioteca.com/first_book/` GET
 
 Este endpoint nos devolverá el primer libro de la tabla de nuestra base de datos
 
@@ -869,7 +866,10 @@ from rest_framework.response import Response
 def get_first_book():
     first_book = Book.objects.first()
     serializer = BookSerializer(first_book)
-    return Response(serializer.data)
+
+    # Como parámetro de la respuesta (HTTP) pasamos el contenido, serializer.data, y
+    # el status code en este caso HTTP OK
+    return Response(serializer.data, status=status.HTTP_200_OK)
 ```
 
 con esto ya tenemos nuestra vista terminada. Si os fijais no devolvemos directamente el JSON sino que usamos el objeto Response que trae rest_framework por defecto ya que nos brinda una serie de utilidades que los pibes de back ya verán mas adelante. 
