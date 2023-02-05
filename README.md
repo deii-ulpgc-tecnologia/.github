@@ -470,11 +470,7 @@ html:
 
 preview:
 
-<div style="background-color: #f5f5f5; padding: 1.3em; border-radius: 10px; margin-bottom: 20px">
-    <div style="padding: 0.5em 2em; background-color: #ffcb23; width: fit-content; border-radius: 10px; font-weight: 700; color: white; cursor: pointer;">
-        Log in
-    </div>
-</div>
+![ButtonPreview](./assets/button-example.png)
 
 Cómo veis css tiene un montón de propiedades que podemos cambiar, desde el background, los colores del texto, el tamaño del elemento... También cuenta con funcionalidad más avanzada como: declaración de variables, útil para reciclar colores por ejemplo; realizar imports, permitiendonos modularizar nuestro css en varios documentos; etc. 
 
