@@ -688,9 +688,9 @@ muy parecido a los diccionarios de python. Voy a poner un ejemplo :
 ```JSON
 {
     "id": 1,
-	"name ": "John",
-	"surname": "Doe",
-	"dni": "88320903M",
+    "name ": "John",
+    "surname": "Doe",
+    "dni": "88320903M",
     "room": 153,
 }
 ```
@@ -704,7 +704,7 @@ hicieramos GET en `api.mihotel.com/clientes` obtendríamos la siguiente respuest
     {
         "id": 1,
         "name": "John",
-		"surname": "Doe",
+        "surname": "Doe",
         "dni": "88320903M",
         "room": 153,
     },
