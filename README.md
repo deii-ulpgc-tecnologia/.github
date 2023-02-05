@@ -689,15 +689,14 @@ _El contenido_
 El contenido en REST normalmente se envía en formato JSON. ¿Qué es un JSON? Pues algo
 muy parecido a los diccionarios de python. Voy a poner un ejemplo :
 
-```
+```JSON
 {
-    id: 1,
-    name : John,
-    surname: Doe,
-    dni: 88320903M,
-    room: 153,
+    "id": 1,
+	"name ": "John",
+	"surname": "Doe",
+	"dni": "88320903M",
+    "room": 153,
 }
-
 ```
 
 Sin embargo ¿Cómo es un JSON que contiene más de un recurso? La otra estructura de 
@@ -707,18 +706,18 @@ hicieramos GET en `api.mihotel.com/clientes` obtendríamos la siguiente respuest
 ```JSON
 [
     {
-        id: 1,
-        name : John,
-        surname: Doe,
-        dni: "88320903M",
-        room: 153,
+        "id": 1,
+        "name": "John",
+		"surname": "Doe",
+        "dni": "88320903M",
+        "room": 153,
     },
     {
-        id: 2,
-        name : May,
-        surname: Madam,
-        dni: "12015803M",
-        room: 153,
+        "id": 2,
+        "name": "May",
+        "surname": "Madam",
+        "dni": "12015803M",
+        "room": 153,
     }
 ]
 ```
@@ -737,9 +736,9 @@ _Ejemplos_
 
 Una librería nos ha pedido que hagamos una REST API para guardar, listar y buscar los libros que tienen. Después esta API la consumira una aplicación móvil para mostrarsela a los usuarios finales.
 
-Primero definamos nuestro recurso, este será libro y vendrá representado por la siguiente JSON:
+Primero definamos nuestro recurso, este será libro y vendrá representado por la siguiente estructura:
 
-```
+```TYPESCRIPT
 {
     id: number,
     title: string,
@@ -750,10 +749,11 @@ Primero definamos nuestro recurso, este será libro y vendrá representado por l
 
 nuestros endpoints serán los siguientes
 
-api.biblioteca.com/books/ GET, POST
-api.biblioteca.com/books/:id GET, PATCH, PUT, DELETE
+`api.biblioteca.com/books/` GET, POST
 
-y ya tendríamos nuestra api lista.
+`api.biblioteca.com/books/:id` GET, PATCH, PUT, DELETE
+
+y ya tendríamos el diseño de nuestra API lista.
 
 ## Implementación
 
@@ -843,9 +843,9 @@ este print nos devolverá lo siguiente
 
 ```JSON
 {
-    title : "Mistborn",
-    subtitle : "El Imperio Final",
-    author: "Brandom Sanderson"
+    "title": "Mistborn",
+    "subtitle": "El Imperio Final",
+    "author": "Brandom Sanderson"
 }
 ```
 
@@ -857,9 +857,7 @@ Para definir la vista y los metodos permitidos sobre ella django rest framework 
 
 La vista que crearemos será la del siguiente endpoint:
 
-```
-www.mibiblioteca.com/first_book/ GET
-```
+`api.biblioteca.com/first_book/` GET
 
 Este endpoint nos devolverá el primer libro de la tabla de nuestra base de datos
 
@@ -872,7 +870,10 @@ from rest_framework.response import Response
 def get_first_book():
     first_book = Book.objects.first()
     serializer = BookSerializer(first_book)
-    return Response(serializer.data)
+
+    # Como parámetro de la respuesta (HTTP) pasamos el contenido, serializer.data, y
+    # el status code en este caso HTTP OK
+    return Response(serializer.data, status=status.HTTP_200_OK)
 ```
 
 con esto ya tenemos nuestra vista terminada. Si os fijais no devolvemos directamente el JSON sino que usamos el objeto Response que trae rest_framework por defecto ya que nos brinda una serie de utilidades que los pibes de back ya verán mas adelante. 
