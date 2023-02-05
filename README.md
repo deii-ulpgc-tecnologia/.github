@@ -283,7 +283,7 @@ a medida que haga falta actualizar información.
 
 # Producto: Del problema a la solución
 
-Bueno viajero, que tal ha ido tu primer expedición? Tienes un poco cara de mareado. Pero bueno, tranquilo que has aterricado en el planeta más alucinante de todos. El planeta **Producto**.
+Bueno viajero, que tal ha ido el lanzamiento? Tienes un poco cara de mareado. Pero bueno, tranquilo que has aterricado en el planeta más alucinante de todos. El planeta **Producto**.
 
 Te noto aturdido, te estarás preguntando ¿Qué es producto? Producto es todo y nada, es el infinito y el cero. Uhum Uhum... vale me dejo de tonterías. Producto es el area de una empresa que se encarga de ser intermediario entre el equipo de desarrollo y el equipo de negocio. Transforma las ideas locas de una empresa en prototipos viables listos para programar, midiendo el impacto real de los mismos una vez entregados al cliente final.
 
@@ -370,9 +370,15 @@ las principales subcategorias del mismo son:
 - UX Designer: Encargados de desarrollar los wireframes.
 - UI Designer: Encargados de pasar los wireframes a mockups.
 
+Bueno, ahora que tienes todos los conocimientos necesarios te permitiré pasar al siguiente planeta.
+
+Buena suerte viajero!
+
 # Frontend: Del prototípo a una aplicación real
 
-Es hora de hablar del frontend, la programación para los brogrammers, esos seres de luz que a pesar de programar 10h al día estan mamados se despiertan a las 5 am y lo primero que hacen es tomarse un batido de proteínas.
+pi, pi, pi. Aterrizaje completado!
+
+Anda, mira quien tenemos por ahí, este es el planeta Frontend, ya has usado tu nave espacial por un rato pero a través de la linea de comandos, *susurrando al oído: solo los pibes de sistemas hacen eso, y créeme tu no quieres ser uno de ellos*. En este planeta configuraremos tu nave para que tenga interfaces que te hagan la vida más fácil. La programación de estás interfaces se llama Frontend.
 
 Empecemos por lo básico.
 
