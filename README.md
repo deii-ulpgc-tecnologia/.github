@@ -287,7 +287,7 @@ Bueno viajero, que tal ha ido tu primer expedición? Tienes un poco cara de mare
 
 Te noto aturdido, te estarás preguntando ¿Qué es producto? Producto es todo y nada, es el infinito y el cero. Uhum Uhum... vale me dejo de tonterías. Producto es el area de una empresa que se encarga de ser intermediario entre el equipo de desarrollo y el equipo de negocio. Transforma las ideas locas de una empresa en prototipos viables listos para programar, midiendo el impacto real de los mismos una vez entregados al cliente final.
 
-Sin un departamento de producto muy bueno, es muy difícil que una empresa o Startup funcione. Es por ello que muchos VCs (Venture Capital) o BA (Business Angels) solo invierten en startups coon equipos de producto de renombre o que hayán demostrado capacidad para innovar y aportar valor. Un ejemplo de este tipo de VC es Itnig de Barcelona.
+Sin un departamento de producto muy bueno, es muy difícil que una empresa o Startup funcione. Es por ello que muchos VCs (Venture Capital) o BA (Business Angels) solo invierten en startups con equipos de producto de renombre o que hayán demostrado capacidad para innovar y aportar valor. Un ejemplo de este tipo de VC es Itnig de Barcelona.
 
 Las funciones que realizan los perfiles de este tipo son:
 
@@ -357,7 +357,7 @@ Las fases de este proceso son 4:
 
 1. Research e Inspiración: donde se tratará de buscar aplicaciones con funcionalidades parecidas, diseños ya echos por otros... (Dribbble es la herramienta que mas se usa para esta fase)
 2. Crear Wireframes: Los wireframes son el esqueleto de nuestro diseño, nos indican la posición de los elementos, los CTAs (call to actions), información contenida dentro de los mismos pero sin ningún tipo de estilo.
-3. Pasar los Fireframes a Mockups: es decir darle estilo a estos Mockups a través del sistema de diseño de nuestra organización
+3. Pasar los Wireframes a Mockups: es decir darle estilo a estos Mockups a través del sistema de diseño de nuestra organización
 4. Protipar: craer un prototipo que el equipo de desarrollo usará para comenzar a trabajar.
 
 Todas y cada una de estas fases hay que validarlas con el equipo y con cliente final para asegurar que todo vaya bien. También si quieres poner cosas fancy hablate con el equipo de front para que te digan que pueden o que no pueden hacer, ya que es probable que si les pones a hacer un blur con fueguitos artificiales te acaben crucificando.
@@ -463,10 +463,13 @@ body { background-color: var(--blue); }
 
 Ahora hablemos de como interpreta CSS los elementos. Para CSS un elemento es un modelo caja, los principales elementos de este modelo son:
 
-- Content: El contenido de la caja, puede ser texto, imágenes, botones, contenedores etc... El tamaño se puede cambiar usando las propiedades width y hight
-- Padding: El relleno de la caja, a nivel visual, el espacio entre el borde del elemento y el contenido, se puede editar haciendo uso de la propiedad "padding"
-- Margin: El márgen de la caja, es decir decir el espacio del borde de la caja hacia otros elementos, se puede editar haciendo uso de la propiedad "margin"
-- Border: El borde de la caja, la linea que envuelve al contenido y el relleno de la caja, se puede editar haciendo uso de la propiedad "border"
+**- Content:** El contenido de la caja, puede ser texto, imágenes, botones, contenedores etc... El tamaño se puede cambiar usando las propiedades width y height.
+
+**- Padding:** El relleno de la caja, a nivel visual, el espacio entre el borde del elemento y el contenido, se puede editar haciendo uso de la propiedad "padding".
+
+**- Margin:** El márgen de la caja, es decir decir el espacio del borde de la caja hacia otros elementos, se puede editar haciendo uso de la propiedad "margin".
+
+**- Border:** El borde de la caja, la linea que envuelve al contenido y el relleno de la caja, se puede editar haciendo uso de la propiedad "border".
 
 Diagrama de las capas del modelo caja:
 ![Diagram](./assets/box-model.png)
