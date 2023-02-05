@@ -437,62 +437,80 @@ estilo que nos permite definir el aspecto con el que se renderizará el componen
 seleccionado.
 
 Los selectores más comunes son de clase (Se le puede aplicar a más de un elemento) o
-id (Se refiere a un elemento concreto). Si es una clase pondremos un . delante del
-nombre (Por ejemplo: `.custom-button`), en cambio si es un id pondremos el # (Por
+id (Se refiere a un elemento concreto). Si es una clase pondremos un '.' delante del
+nombre (Por ejemplo: `.custom-button`), en cambio si es un id pondremos el '#' (Por
 ejemplo: `#custom-element`). Después añadiremos llaves y dentro especificaremos
 el estilo que se debe aplicar a los elementos referenciados por el selector.
 
-```CSS
-.clase-objeto{
-   color: red;
-   background-color: blue;
-   font-size: 1.3em;
-}
+Vamos a poner un ejemplo: 
 
+En este caso crearemos un estilo para un botón personalizado usando un selector de clase por lo tanto empezará el nombre con un '.'
+
+```CSS
+.custom-button{
+    padding: 0.5em 2em; 
+    background-color: #ffcb23; 
+    width: fit-content;
+    border-radius: 10px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1em;
+    cursor : pointer;
+}
 ```
 
-Como veis tiene un gran número de propiedades que podemos modificar de nuestro elemento. Desde color, fuentes etc... También nos permité declarar variables, útiles para reciclar colores por ejemplo, realizar imports y separarlo por partes etc... Pero como veis aunque seán buenas funcionalidades son un poco "boilerplate" es por eso que para nuestro proyecto envez de css a pelo usaremos SaaS.
+Finalmente este sería el resultado del css anterior:
+
+html:
+```html
+<div class="custom-button">
+    Log In
+</div>
+```
+
+preview:
+
+<div style="background-color: #f5f5f5; padding: 1.3em; border-radius: 10px; margin-bottom: 20px">
+    <div style="padding: 0.5em 2em; background-color: #ffcb23; width: fit-content; border-radius: 10px; font-weight: 700; color: white; cursor: pointer;">
+        Log in
+    </div>
+</div>
+
+Cómo veis css tiene un montón de propiedades que podemos cambiar, desde el background, los colores del texto, el tamaño del elemento... También cuenta con funcionalidad más avanzada como: declaración de variables, útil para reciclar colores por ejemplo; realizar imports, permitiendonos modularizar nuestro css en varios documentos; etc. 
 
 ```CSS
+/* Declaración de variables en CSS normal */
 :root {
-  --blue: #1e90ff;
+  --background: #1e90ff;
 }
 
-body { background-color: var(--blue); }
+body { background-color: var(--background); }
+
+
+/* Declaración de variables en SASS */
+$background-dark: #1e90ff;
+
+body {
+  background-color: $background-dark
+}
 ```
 
-Ahora hablemos de como interpreta CSS los elementos. Para CSS un elemento es un modelo caja, los principales elementos de este modelo son:
+ Como podéis observar en el ejemplo de abajo aunque sean buenas *features* suponen mucho código "boilerplate" es por eso que para nuestro proyecto envez de css a pelo usaremos **SASS**.
 
-**- Content:** El contenido de la caja, puede ser texto, imágenes, botones, contenedores etc... El tamaño se puede cambiar usando las propiedades width y height.
+Hablemos ahora de como funciona css por detrás. Para css todos los elementos son cajas y dichas cajas vienen definidas por las siguientes propiedades:
 
-**- Padding:** El relleno de la caja, a nivel visual, el espacio entre el borde del elemento y el contenido, se puede editar haciendo uso de la propiedad "padding".
-
-**- Margin:** El márgen de la caja, es decir decir el espacio del borde de la caja hacia otros elementos, se puede editar haciendo uso de la propiedad "margin".
-
-**- Border:** El borde de la caja, la linea que envuelve al contenido y el relleno de la caja, se puede editar haciendo uso de la propiedad "border".
+- **Content**: El contenido de la caja, puede ser texto, imágenes, botones, contenedores etc... El tamaño se puede cambiar usando las propiedades width y hight
+- **Padding**: El relleno de la caja, a nivel visual, el espacio entre el borde del elemento y el contenido, se puede editar haciendo uso de la propiedad "padding"
+- **Margin**: El márgen de la caja, es decir decir el espacio del borde de la caja hacia otros elementos, se puede editar haciendo uso de la propiedad "margin"
+- **Border**: El borde de la caja, la linea que envuelve al contenido y el relleno de la caja, se puede editar haciendo uso de la propiedad "border"
 
 Diagrama de las capas del modelo caja:
+
 ![Diagram](./assets/box-model.png)
-
-**SASS**
-
-No voy a hablar mucho de el, solo comentar algunas de sus ventajas ya que esto es una guía introductoria. SaaS permite entre otras funcionalidades: herencia de estilos al mas puro estilo POO, uso de modulos independientes, variables fáciles de declarar, anidación de elementos unos en otros, código más legible etc...
-
-Voy a poner un cacho de código SaaS declarando variables para que veaís la diferencia.
-
-```CSS
-$border-dark: rgba($base-color, 0.88);
-
-.alert {
-  border: 1px solid $border-dark;
-}
-```
-
-Mucho más sencillo que usar el var ese por ahí enmedio y el :root no? Lo guapo de sass esque todo el css que escribas es totalmente compatible y funciona en un documento tipo .scss (Una de las extensiones que permite sass) oesa que es la leche.
 
 ## Javascript
 
-Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript como su propio nombre sugiere no tiene absolutamente nada que ver con la programación que conociste en Java.
+Okey, vamos con ahora sí, un lenguaje de programación de verdad, turing completo y todas esas cosas. Javascript como su propio nombre sugiere no tiene absolutamente nada que ver con Java.
 
 Sus características son:
 
@@ -686,22 +704,22 @@ Sin embargo ¿Cómo es un JSON que contiene más de un recurso? La otra estructu
 datos que existe en JSON son las listas y se representan con `[]` de forma que si
 hicieramos GET en `api.mihotel.com/clientes` obtendríamos la siguiente respuesta:
 
-```
+```JSON
 [
     {
         id: 1,
         name : John,
         surname: Doe,
-        dni: 88320903M,
+        dni: "88320903M",
         room: 153,
     },
     {
         id: 2,
         name : May,
         surname: Madam,
-        dni: 12015803M,
+        dni: "12015803M",
         room: 153,
-    },
+    }
 ]
 ```
 
@@ -719,7 +737,7 @@ _Ejemplos_
 
 Una librería nos ha pedido que hagamos una REST API para guardar, listar y buscar los libros que tienen. Después esta API la consumira una aplicación móvil para mostrarsela a los usuarios finales.
 
-Primero definamos nuestro recurso, este será libro y vendrá representado por el siguiente JSON:
+Primero definamos nuestro recurso, este será libro y vendrá representado por la siguiente JSON:
 
 ```
 {
@@ -739,11 +757,21 @@ y ya tendríamos nuestra api lista.
 
 ## Implementación
 
-Una vez que ya tenemos la API lista habrá que ver como se implementan las funciones por detrás en el backend a si que vamos a bajarnos al barro y hablar de arquitectura.
+Es momento de hablar de como se implementa una RESTful API por detrás.
 
-Nosotros para construir nuestro back vamos a usar Django. Un framework basado en MVT (Model View Template).
+Para ello usaremos un framework llamado Django, esta escrito en python y basado en la arquitectura MVT (Model View Template) que explicaremos un pelín mas tarde.
 
-_Modelo_
+Este framework es un cohete, es el segundo framework backend mas usado, esta dentro de los frameworks más seguros y además, a pesar de estar escrito en python, va rápido como un rayo. Varias de las empresas que tienen su backend escrito en el son: Instagram, Spotify, Dropbox, The Washington Post, Pinterest y hasta la pu** NASA lo usa (de ahí lo de cohete).
+
+**Modelo Vista Template**
+
+![imagen](https://i.ytimg.com/vi/ktJfE4DHrv0/maxresdefault.jpg)
+
+Básicamente esta arquitectura se basa en lo siguiente: tu tienes un modelo que es capaz de acceder a la base de datos, y una plantilla, que básicamente es un html con información extra a cerca de los campos que necesitan ser rellenados con información de la base de datos. La vista llama al modelo, coge la información que necesita la plantilla, renderiza la plantilla con ella y se la devuelve al cliente. Fin.
+
+En nuestro caso nosotros no queremos devolver html (eso se lo dejaremos al servidor de frontend), queremos devolver JSON (Por que somos una RESTful API). **Por lo tanto lo único que cambia es que nuestra vista en vez de llamar a la plantilla con la información pillada a través del modelo, llamará a un serializador.** El serializador se encargará de transformar nuestros datos del modelo en formato JSON para luego enviarselo al cliente.
+
+**Modelo**
 
 El modelo es la capa relacionada con nuestros datos y su almacenamiento. Normalmente se implementa a través de un ORM (Object Relational Mapping) que nos ofrece una interfaz muy amigable para trabajar con bases de datos sin tener que hacer llamadas a pelo.
 
@@ -751,7 +779,8 @@ El ORM se basa en, como sus siglas dicen, mapear una tabla de la base de datos a
 
 Pongamos un ejemplo con Django.
 
-```
+
+```python
 import model from django.db
 
 class Book(models.Model):
@@ -764,10 +793,11 @@ class Book(models.Model):
 esto se traduciría a la siguiente llamada en MySQL o algo por el estilo
 pero de esto nosotros no nos tenemos que preocupar por que ya lo hará el ORM por nosotros
 
-```
+```SQL
 CREATE TABLE Book(
     id int,
     title varchar(255),
+    subtitle varchar(255),
     author varchar(255)
 )
 
@@ -775,20 +805,79 @@ CREATE TABLE Book(
 
 A su vez también nos permitirá coger los datos de la DB y hacer _queries_ con ese objeto
 
-```
-Book.objects.all() # coger todos los objetos
+```python
+Book.objects.all() # Coger todos los objetos
 
-new_book = Book("pepe", "pepe", "pepe")
-new_book.save() # guarda un nuevo registro en nuestra base de datos
+new_book = Book("Mistborn", "El Imperio Final", "Brandon Sanderson")
+new_book.save() # Guarda un nuevo registro en nuestra base de datos con title "Mistborn", subtitle "El Imperio Final" y author "Brandon Sanderson"
 ```
 
 Lo veis!! Muy fácil de usar.
 
-_Vista_
+**Serializador**
 
-La vista será el código que se ejecute cuando llames a un endpoint. Normalmente lo
-que hará es usar el ORM para coger la información que has pedido, convertirla en un
-JSON y devolverlá.
+Hablemos del serializador. Django tiene una framework extremadamente popular para crear RESTful apis llamada django rest framework. Este nos agrega mucha funcionalidad, entre ella nos da clases para crear los serializadores facilmente.
+
+Un ejemplo de serializador para nuestro libro sería el siguiente:
+
+```python
+from rest_framework import serializers
+
+class BookSerializer(serializers.Serializer)
+    title = serializer.CharField(max_length=255)
+    subtitle = serializer.CharField(max_length=255)
+    author = serializer.CharField(max_length=255)
+
+```
+
+Para usar nuestro serializador bastaría con pasarle una instancia de un libro. Usaremos la variable new_book que creamos anteriormente con el libro Mistborn.
+
+
+```python
+serializer = BookSerializer(new_book) #creamos un serializador a partir de la instancia
+
+print(serializer.data)
+```
+
+este print nos devolverá lo siguiente
+
+```JSON
+{
+    title : "Mistborn",
+    subtitle : "El Imperio Final",
+    author: "Brandom Sanderson"
+}
+```
+
+**Vista**
+
+La vista lo que hará será pillar el modelo que queramos serializar y llamar a nuestro serializador para convertirlo en JSON como veremos a continuación.
+
+Para definir la vista y los metodos permitidos sobre ella django rest framework nos brinda un decorador llamado api_view que nos hará la vida más fácil.
+
+La vista que crearemos será la del siguiente endpoint:
+
+```
+www.mibiblioteca.com/first_book/ GET
+```
+
+Este endpoint nos devolverá el primer libro de la tabla de nuestra base de datos
+
+
+```python
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(["GET"])
+def get_first_book():
+    first_book = Book.objects.first()
+    serializer = BookSerializer(first_book)
+    return Response(serializer.data)
+```
+
+con esto ya tenemos nuestra vista terminada. Si os fijais no devolvemos directamente el JSON sino que usamos el objeto Response que trae rest_framework por defecto ya que nos brinda una serie de utilidades que los pibes de back ya verán mas adelante. 
+
+Con esto hemos terminado con el backend.
 
 # Sistemas: Linux uwu
 
