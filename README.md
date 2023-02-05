@@ -8,8 +8,6 @@ el único objetivo de esta guía es que cuando la termines tengas un mapa en la 
 
 Comencemos pues!
 
-3, 2, 1... Despegue!!!!!!!
-
 # Índice
 
 1. [Infraestructura: El mapa](#infraestructura-el-mapa)
@@ -259,13 +257,20 @@ a través de URLs.
 
 ---
 
-A continuación se muestran los **verdaderos diagramas de los diferentes modelos de
-desarrollo web**. Se utiliza como ejemplo un cliente cualquiera y el servidor la delegación. Los contenedores representan las máquinas físicas mientras que los
-componentes dentro de estas representan procesos.
+A continuación se muestran los **verdaderos diagramas de los diferentes
+modelos de desarrollo web**. Se utiliza como ejemplo un cliente
+cualquiera y el servidor la delegación. Los contenedores representan
+las máquinas físicas mientras que los componentes dentro de estas
+representan procesos.
+
+
 
 ### SSR
 
 ![SSR Diagram](./assets/ssr-diagram.png)
+
+**Corrección de errata**: El número dos no está en el diagrama, se debe
+ignorar y continuar por el tres.
 
 ### CSR
 
@@ -278,8 +283,20 @@ a medida que haga falta actualizar información.
 
 ![Hybrid Diagram](./assets/hybrid-diagram.png)
 
+**Corrección de errata**: El número dos no está en el diagrama, se debe
+ignorar y continuar por el tres.
+
+**Nota**: Las relaciones entre Backend y Database se llevan a cabo 
+siempres antes del paso cuatro, construir el contenido.
+
 Los pasos 10. y 11. pueden llevarse a cabo multiples veces
 a medida que haga falta actualizar información.
+
+Ahora que entiendes lo básico es hora de que comiences tu viaje, buena 
+suerte explorador espacial.
+
+3, 2, 1... Despegue!!!!!!!
+
 
 # Producto: Del problema a la solución
 
@@ -291,8 +308,7 @@ Sin un departamento de producto muy bueno, es muy difícil que una empresa o Sta
 
 Las funciones que realizan los perfiles de este tipo son:
 
-- Identificación de problemas (pains) de nuestro cliente
-- Ideación de funcionalidades que solventen esos problemas
+- Identificación de problemas (pains) de nuestro cliente - Ideación de funcionalidades que solventen esos problemas
 - Priorización de esas funcionalidades.
 - Diseño de un prototipo que cumpla con las especificaciones.
 - Testeo y evaluación del rendimiento de nuestro prototipo.
@@ -585,6 +601,9 @@ Typescript es una opción que sólida para llevar a cabo nuestro proyecto si lo 
 
 # Backend: Dónde ocurre la magia
 
+Bienvenido al planeta del Backend. ¿Interfaces de usuario? ¿Qué es eso?
+¿Se come?
+
 Bueno es momento de hablar del backend. El backend como hemos visto antes será el que guarde nuestra lógica de negocio y se encargue de que se realice correctamente la persistencia de nuestros datos.
 
 Hay infinidad formas de estructurar el backend, pero nuestro caso es concreto,
@@ -874,14 +893,27 @@ def get_first_book():
 
 con esto ya tenemos nuestra vista terminada. Si os fijais no devolvemos directamente el JSON sino que usamos el objeto Response que trae rest_framework por defecto ya que nos brinda una serie de utilidades que los pibes de back ya verán mas adelante. 
 
-Con esto hemos terminado con el backend.
+El momento de que continues tu camino, que SOLID te acompañe.
+
+*Nuestro héroe despega en su nave espacial camino a nuevas aventuras*
+*inconsciente de los peligros a los que se tendrá que enfrentar.*
+
+*Tres meses después, cerca de la Nebulosa del Cangrejo*
+
+**- Ordenador de la nave**: Error crítico, realizando aterrizaje de 
+emergencia.
+
+*Sonidos de motor roto (Boom)*
 
 # Sistemas: Linux uwu
 
-Vaya o eres muy curioso/a o definitivamente eres el pibe de sistemas.
+Wow parece que te hubieras sacado el carnet de vuelo en una lotería !Vaya aterrizaje!
 
-Bienvenidos al corazon de la máquina. El explorador espacial definitivo es capaz de
-reparar los motores y asegurarse de que todo está bien engrasado.
+Si te quieres quedar aquí o eres muy curioso/a o definitivamente eres el pibe de 
+sistemas.
+
+Bienvenido al corazón de la máquina. Aquí aprenderás que el explorador espacial
+definitivo es capaz de reparar los motores y asegurarse de que todo está bien engrasado.
 
 A continuación se describen las principales tecnologías que se utilizarán para
 facilitar el desarrollo y despliegue de este proyecto.
