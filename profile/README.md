@@ -55,7 +55,7 @@ Esto es una lista de los valores que tienen que cumplir todos los participantes 
 2. Sin pasión no hay delegación. No pasion, no party.
 3. El esfuerzo no se negocia.
 4. La felicidad de las personas es una prioridad. People first.
-5. Pensamos mas hallá para mejorar constantemente. Vivimos en versión beta.
+5. Pensamos mas allá para mejorar constantemente. Vivimos en versión beta.
 6. No somos serios pero nos va la risa. No por ello somos menos profesionales.
 7. Crecemos con una cultura de feedback clara y sincera. Fearless Feadback.
 
