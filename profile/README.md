@@ -1,6 +1,6 @@
 # 🙋‍♀️ Bienvenidos
 
-Esta es la organización de github de la DEII (Delegación de estudiantes de Ingenieria Informática). Los frikis de la uni vamos 🥸.
+Esta es la organización de github de la DEII (Delegación de Estudiantes de la Escuela Ingenieria Informática). Los frikis de la uni vamos 🥸.
 En esta organización creamos proyectos tecnológicos relacionados con la unviersidad. El objetivo es mejorar la calidad de vida de los estudiantes, mientras fomentamos una cultura de aprendizaje autodidácta y colaborativa.
 
 En resumen buscamos problemas que tengan los estudinates de la universidad, y creamos equipos de desarrollo multidisciplinares para 
